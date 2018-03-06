@@ -1,10 +1,104 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="utf-8" />
-		<title>猿窝-一个web前端程序猿的自嗨天地</title>
+		<meta charset="utf-8">
+		<title>猿窝——一个程序猿的自嗨天地</title>
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/ownstyle.css" />
 	</head>
+
 	<body>
-		施工中！感谢来访……>_<
+
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+						<span class="sr-only">切换导航</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">猿窝</a>
+				</div>
+				<div class="collapse navbar-collapse" id="example-navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#">技术文档</a>
+						</li>
+						<li>
+							<a href="#">代码病例</a>
+						</li>
+						<li>
+							<a href="#">心情</a>
+						</li>
+						<li>
+							<a href="#">关于我</a>
+						</li>
+						<li>
+							<a href="#">留言板</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-8 main" id="n1" onclick="rlog('n1','text/01.txt')">
+					点击查看！
+				</div>
+				<div class="col-8 main">
+					持续装修中！bate0.0.1
+				</div>
+				<div class="col-8 main">
+					dsfsfasa
+				</div>
+				<div class="col-8 main">
+					dsfsfasa
+				</div>
+				<div class="col-8 main">
+					dsfsfasa
+				</div>
+				<div class="col-8 main">
+					dsfsfasa
+				</div>
+				
+			</div> 
+			
+			
+		</div>
+		
+		
+		<script type="text/javascript">
+			function rlog(con,texad){
+			var mrq = new XMLHttpRequest();
+			var cont=con;
+			var txt=texad;
+			function ReadFile(data) {
+            var box = document.getElementById(cont);
+            box.innerHTML = data;
+        }        
+       
+        mrq.onload = function () {
+        	
+            ReadFile(mrq.responseText);
+        };
+        try {
+            mrq.open("get", txt, true);
+            mrq.send();
+        }
+        catch (ex) {
+            ReadFile(ex.message);
+        }  
+			}
+		       
+  
+			
+		</script>
+		
+
 	</body>
+
 </html>
