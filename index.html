@@ -3,6 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no"/>
 		<title>猿窝——一个程序猿的自嗨天地</title>
 		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -26,7 +27,7 @@
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="#">技术文档</a>
+							<a href="#" onclick="rlog('inbox','text/00.txt')">技术文档</a>
 						</li>
 						<li>
 							<a href="#">代码病例</a>
@@ -45,59 +46,53 @@
 			</div>
 		</nav>
 		<div class="container">
-			<div class="row">
-				<div class="col-8 main" id="n1" onclick="rlog('n1','text/01.txt')">
-					点击查看！
-				</div>
-				<div class="col-8 main">
-					持续装修中！bate0.0.1
-				</div>
-				<div class="col-8 main">
-					dsfsfasa
-				</div>
-				<div class="col-8 main">
-					dsfsfasa
-				</div>
-				<div class="col-8 main">
-					dsfsfasa
-				</div>
-				<div class="col-8 main">
-					dsfsfasa
-				</div>
+			<!--
+            	作者：offline
+            	时间：2018-03-07
+            	描述：外围内容容器，读取标题。
+            -->
+			<div class="row" id="inbox">
+
+			</div>
+			<!--
+            	作者：offline
+            	时间：2018-03-07
+            	描述：浮动层显示内容
+            -->
+			<div>
 				
-			</div> 
-			
-			
+			</div>
+
 		</div>
-		
-		
+
 		<script type="text/javascript">
-			function rlog(con,texad){
-			var mrq = new XMLHttpRequest();
-			var cont=con;
-			var txt=texad;
-			function ReadFile(data) {
-            var box = document.getElementById(cont);
-            box.innerHTML = data;
-        }        
-       
-        mrq.onload = function () {
-        	
-            ReadFile(mrq.responseText);
-        };
-        try {
-            mrq.open("get", txt, true);
-            mrq.send();
-        }
-        catch (ex) {
-            ReadFile(ex.message);
-        }  
-			}
-		       
-  
 			
+			//选择容器，将读取的txt内容放到容器中;
+			function rlog(con, texad) {
+				var mrq = new XMLHttpRequest();
+				var cont = con;
+				var txt = texad;
+
+				function ReadFile(data) {
+					var box = document.getElementById(cont);
+					box.innerHTML = data;
+				}
+
+				mrq.onload = function() {
+
+					ReadFile(mrq.responseText);
+				};
+				try {
+					mrq.open("get", txt, true);
+					mrq.send();
+				} catch(ex) {
+					ReadFile(ex.message);
+				}
+			}
+
+			//进入网页加载默认页面;
+			rlog("inbox", "text/00.txt")
 		</script>
-		
 
 	</body>
 
