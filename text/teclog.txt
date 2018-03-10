@@ -1,4 +1,4 @@
-<div class="col-8 main" id="n1" onclick="rlog('n1','text/01.txt')">
+<div class="col-8 main" id="n1" onclick="rlog('pop','text/01.txt');showde()">
 					点击查看！
 				</div>
 				<div class="col-8 main">
