@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<!--<script type="text/javascript" src="js/cpc.js"></script> -->
+		<title></title>
+	</head>
+
+	<body>
+		<div id="inners">
+			<select id="pr">
+				请选择
+
+			</select>
+			<select id="ct">
+				请选择
+			</select>
+			<select id="ar">
+				请选择
+			</select>
+			<button type="button" id="up">提交</button>
+		</div>
+		<div id="myDiv"></div>
+		<script type="text/javascript">
+				
+					/*	$(function() {
+							//alert(cpc.length);
+							selpca()
+
+					}) */
+
+						$('#up').click(function() {//提交
+							var pr = document.getElementById('pr').value;
+							var ct = document.getElementById('ct').value;
+							var ar = document.getElementById('ar').value;
+							alert(pr + '-' + ct + '-' + ar);
+							alert(pca[pr].name + '-' + pca[pr].city[ct].name + '-' + pca[pr].city[ct].area[ar])
+						})
+
+						function selpca() {
+							var cpc = pca; //json数据源	
+							var prn = 0; //初始省
+							var ctn = 0; //初始市
+							var arn = 0; //初始地区
+							selpr();
+							selct(prn);
+							selare(prn, ctn);
+
+							$('#pr').change(function() { //选择省
+								prn = this.value;
+								ctn = 0;
+								arn = 0;
+								selct(prn);
+								selare(prn, ctn);
+
+							})
+							$('#ct').change(function() { //选择市
+								ctn = this.value;
+								arn = 0;
+								selare(prn, ctn);
+
+							})
+							$('#ar').change(function() { //选择地区
+								arn = this.value;
+							})
+
+							function selpr() { //初始化省
+								for(var i = 0; i < cpc.length; i++) {
+									$('#pr').append("<option value='" + i + "'>" + cpc[i].name + "</option>")
+								}
+							}
+
+							function selct(prn) { //显示市-响应省
+								$('#ct').empty();
+								var ct = cpc[prn].city;
+								for(var i = 0; i < ct.length; i++) {
+									$('#ct').append("<option value='" + i + "'>" + ct[i].name + "</option>")
+								}
+							}
+
+							function selare(prn, ctn) { //显示地区-响应市
+								$('#ar').empty();
+								var ar = cpc[prn].city[ctn].area;
+								for(var i = 0; i < ar.length; i++) {
+									$('#ar').append("<option value='" + i + "'>" + ar[i] + "</option>")
+								}
+							}
+
+						}
+						
+                var reqrs;//请求数据源
+				var pca;//转换json数据源
+			$(function(){
+				var xmlhttp;
+				
+				if(window.XMLHttpRequest) {
+					//  IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp = new XMLHttpRequest();
+				} else {
+					// IE6, IE5 
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange = function() {
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						reqrs = xmlhttp.responseText;
+						pca=eval('('+reqrs+')');
+						selpca();
+						
+					}
+				}
+				xmlhttp.open("GET", "text/cpc.txt", true);
+				xmlhttp.send();
+				
+				
+			})
+			
+		</script>
+
+	</body>
+
+</html>
