@@ -1,13 +1,8 @@
-body{
-	background-color: #333333;
-}
-.mainb{
-	background-color:#ffffff;
-	border-radius: 30px;
-	margin:10px 5px 30px 5px;
-	padding: 10px;
-	word-wrap: break-word;
-	overflow: hidden;
+
+
+nav a:hover{
+	color: #286090;
+	font-size: large;
 }
 .footer{
 	bottom: 0px;
@@ -17,4 +12,15 @@ body{
 	border-top:#dddddd solid 1px;
 	padding:2px;
 }
-
+.mainCon{
+	cursor: pointer;
+	background-color: #f8f8f8;
+	padding:5px;
+	margin: 0 2px;
+	margin-bottom:20px;
+	border-radius: 20px;
+	box-shadow:1px 1px 2px #cccccc;
+}
+.mainCon:hover{
+	border:1px #122B40 solid;
+}

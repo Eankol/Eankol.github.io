@@ -1,18 +1,82 @@
-<div class="col-8 main" id="n1" onclick="rlog('pop','text/01.txt');showde()">
-					点击查看！
-				</div>
-				<div class="col-8 main">
-					持续装修中！bate0.0.1
-				</div>
-				<div class="col-8 main">
-					dsfsfasa
-				</div>
-				<div class="col-8 main">
-					dsfsfasa
-				</div>
-				<div class="col-8 main">
-					dsfsfasa
-				</div>
-				<div class="col-8 main">
-					dsfsfasa
-				</div>
+[
+	{"title":"第一篇日志",
+	 "date":"2018-03-22",
+	 "inner":"text/teclog/01.txt"
+	 },
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	},
+	 
+	{"title":"测试数据",
+	 "date":"2018-03-23",
+	 "inner":" "
+	}
+
+]
