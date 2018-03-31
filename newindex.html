@@ -59,11 +59,9 @@
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar hidden-xs">
           <div class="sidebar-module sidebar-module-inset">
-            <h4>Update-logs:</h4>
+            <h4>更新日志:</h4>
             <ol id="up_log">
-            	
-            	
-            	
+            	--动态加载更新日志--
             </ol>
             
             </div>
@@ -77,25 +75,12 @@
 			//读取json
 				
 			$(function(){
-				var xmlhttp;
-				
-				if(window.XMLHttpRequest) {
-					//  IE7+, Firefox, Chrome, Opera, Safari
-					xmlhttp = new XMLHttpRequest();
-				} else {
-					// IE6, IE5 
-					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-				}
-				xmlhttp.onreadystatechange = function() {
-					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-						var reqrs = xmlhttp.responseText;
-						document.getElementById('up_log').innerHTML=reqrs;
-						
-					}
-				}
-				xmlhttp.open("GET", "text/uplogs.txt", true);
-				xmlhttp.send();
-				
+				var getStr=$.ajax({
+					type:"get",
+					url:"text/uplogs.txt",
+					async:false
+				});
+				document.getElementById('up_log').innerHTML=getStr.responseText;
 				
 			})
 
