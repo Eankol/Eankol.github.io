@@ -31,13 +31,28 @@ nav a:hover{
 	background-image: url(../img/tx.png);
 	background-size: 100px 100px;
 	margin: 20px;
+	
 }
-.navbar-nav {
-  float: none;
-  text-align:center;
+.navs{
+	text-align: center;
 }
-ul.nav.navbar-nav  li {
-    float:none;
-    display: inline-block;
-    margin: 0em;
+.navs a{
+	margin-left: 10px;
+	margin-right: 10px;
+	text-decoration: none;
+	color: #666666;
+	font-size: 15px;
+}
+.bander{
+	text-align: center;
+	font-size: 18px;
+	color: #9D9D9D;
+	font-weight:800;
+	padding-top: 80px;
+}
+.inbox{
+	background-color:#F8F8F8;
+	word-wrap: break-word;
+	overflow: hidden;
+	margin-bottom: 20px;
 }
