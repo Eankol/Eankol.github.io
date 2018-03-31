@@ -1,9 +1,94 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+		<title>猿窝——一个程序猿的自嗨天地</title>
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
+
 	<body>
+		<nav class="navbar navbar-default navbar-static-top site-navbar">
+			<div class="container">
+				<div align="center">
+					
+					<div class=" tx">
+					</div>
+				</div>
+			
+				</div>
+
+				
+				
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#" name="tabBut">Home</a>
+						</li>
+						<li>
+							<a href="#" name="tabBut">Blog</a>
+						</li>
+						<li>
+							<a href="#" name="tabBut">About&nbsp;Me</a>
+						</li>
+					</ul>
+					
+				
+				
+				</div>
+
+			
+
+		</nav>
+		<!--主体开始-->
+		
+		<main class="container">
+				<div class="row" id="mainBor">
+					
+				</div>
+				<div id="fybt" align="center"></div>
+		</main>
+
+		<script type="text/javascript">//读取json
+		
+		var navtar=['teclog.txt','debuglog.txt','minlog.txt','mypr.txt','lemsg.txt'];
+		var navs=document.getElementsByName('tabBut');
+		$(navs[0]).click(function(){
+			$.ajax({
+				type:"get",
+				url:"text/"+navtar[0],
+				async:true,
+				success:function(data){
+					var getJson=jQuery.parseJSON(data);
+					$('#mainBor').empty();
+					var zy=Math.ceil(getJson.length/10);
+					for (var i=1;i<=zy;i++) {
+						var temp=$("<span>"+i+"</span>")
+						$('#fybt').append(temp);
+					}
+					for (var i=0;i<getJson.length;i++) {
+						var temp=$("<div class='mainCon'><h3>"+getJson[i].title+"</h3><h5>"+getJson[i].date+"</h5></div>")
+						$('#mainBor').append(temp);
+					}
+					
+				}
+			});
+			
+		})
+		
+		
+	
+		</script>		
+			
+	
+		<!--footer开始-->
+		<footer class="footer">
+			@ean<br>email:eankol@163.com
+		</footer>
+
 	</body>
+
 </html>

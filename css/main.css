@@ -24,3 +24,20 @@ nav a:hover{
 .mainCon:hover{
 	border:1px #122B40 solid;
 }
+.tx{
+	height: 100px;
+	width: 100px;
+	border-radius: 50% 50%;
+	background-image: url(../img/tx.png);
+	background-size: 100px 100px;
+	margin: 20px;
+}
+.navbar-nav {
+  float: none;
+  text-align:center;
+}
+ul.nav.navbar-nav  li {
+    float:none;
+    display: inline-block;
+    margin: 0em;
+}
