@@ -50,41 +50,21 @@
 
           <div class="blog-post" id="rds">
           <h3>推荐阅读</h3>
-          <h4 id="rds_title">title</h4><h5 id="rds_date">2018-04-01</h5>
+          <h4 id="rds_title">标题</h4><h5 id="rds_date">日期</h5>
           <div id="rds_paper">
-          <p>
-          	一个网站的流量大部分来自长尾关键词，特别是综合型门户站，百分九十以上的流量来自长尾关键词，所以如何优化好长尾关键词排名，对于一个合格的SEO人员来说是非常重要的，我今天手把手教大家如何优化长尾关键词。
-          </p>
-          <p>
-          	我以前有在网络上看到一句话：内容为王，外链为皇，内链为妃，代码为将，关键词为相，结构为城，更新为太子；这句话一直非常非常的适用于SEO，无论在哪个时期，他都不会过期。总结起来就两点，内部和外部，这里重点和大家分享如何布局好网页关键词做好内容以及如何做高质量的外链。
-          </p>
+          --动态加载内容--
           </div>
-          <span id="pre_rds">收起阅读</span><span id="all_rds">展开阅读</span>
+          <span id="all_rds">展开阅读</span>
+          <span id="pre_rds">收起阅读</span>
           </div>
 
           <div class="blog-post">
           <h3>短博客</h3>
           <div id="sh_blog">
           	<div id="sh_blog_main">
-          	<h5>2018-04-01</h5>	
-          	<p>很快就会给空间规划就立刻好感动好感动了空间可怜见鼓励大家发个开绿灯飞机；看见了的反馈结果浪费大家快过来和客户的疯狂过后的开国皇帝了个工会呵呵公开很快就会立刻赶回立刻就会立刻发动就好了发给客户的风格化的老公看见很多了看看就换个地方和管理</p>
-            <h5>2018-04-01</h5>	
-          	<p>All it took was one glance.Now all I ask is one chance,To try to win your heart.Just giveeeeeeeeeeeeee me a chance to start.I'll show you it was meant to be.To be together is our destiny</p>
-         	<h5>2018-04-01</h5>	
-          	<p>很快就会给空间规划就立刻好感动好感动了空间可怜见鼓励大家发个开绿灯飞机；看见了的反馈结果浪费大家快过来和客户的疯狂过后的开国皇帝了个工会呵呵公开很快就会立刻赶回立刻就会立刻发动就好了发给客户的风格化的老公看见很多了看看就换个地方和管理</p>
-            <h5>2018-04-01</h5>	
-          	<p>All it took was one glance.Now all I ask is one chance,To try to win your heart.Just giveeeeeeeeeeeeee me a chance to start.I'll show you it was meant to be.To be together is our destiny</p>
-         <h5>2018-04-01</h5>	
-          	<p>很快就会给空间规划就立刻好感动好感动了空间可怜见鼓励大家发个开绿灯飞机；看见了的反馈结果浪费大家快过来和客户的疯狂过后的开国皇帝了个工会呵呵公开很快就会立刻赶回立刻就会立刻发动就好了发给客户的风格化的老公看见很多了看看就换个地方和管理</p>
-            <h5>2018-04-01</h5>	
-          	<p>All it took was one glance.Now all I ask is one chance,To try to win your heart.Just giveeeeeeeeeeeeee me a chance to start.I'll show you it was meant to be.To be together is our destiny</p>
-         <h5>2018-04-01</h5>	
-          	<p>很快就会给空间规划就立刻好感动好感动了空间可怜见鼓励大家发个开绿灯飞机；看见了的反馈结果浪费大家快过来和客户的疯狂过后的开国皇帝了个工会呵呵公开很快就会立刻赶回立刻就会立刻发动就好了发给客户的风格化的老公看见很多了看看就换个地方和管理</p>
-            <h5>2018-04-01</h5>	
-          	<p>All it took was one glance.Now all I ask is one chance,To try to win your heart.Just giveeeeeeeeeeeeee me a chance to start.I'll show you it was meant to be.To be together is our destiny</p>
-         
-            
-          	</div>
+          	--动态加载微博--
+            </div>
+          	<span id="re_index"><<</span><layer id="indexs"><span>1</span></layer><span id="nx_index">>></span>
           </div>
           </div>
              
@@ -104,7 +84,7 @@
              <div class="sidebar-module sidebar-module-inset inbox">
             <h4>使用技术:</h4>
             <p>
-            	HTML5+CSS3&emsp;javascript&emsp; jquery&emsp; bootstrap
+            	HTML5+CSS3&emsp;javascript&emsp; jquery&emsp; bootstrap&emsp;Ajax
             </p>
             
             </div>
@@ -125,6 +105,70 @@
 					async:false
 				});
 				document.getElementById('up_log').innerHTML=getStr.responseText;
+			})
+			$(function(){
+				$.ajax({
+					type:"get",
+					url:"text/preatc.txt",
+					async:true,
+					success:function(data){
+						var getJson=eval('('+data+')');
+						$('#rds_title').html(getJson.title)
+						$('#rds_date').html(getJson.date)
+						var preatc=getJson.preurl;
+						var atc=getJson.url;
+						var getatc;
+						function showatc(url){
+							getatc=$.ajax({
+								type:"get",
+								url:url,
+								async:false
+							});
+							var texts=getatc.responseText;
+							return texts;
+						}
+						$('#rds_paper').html(showatc(preatc));
+						$('#pre_rds').click(function(){
+							$('#rds_paper').html(showatc(preatc));
+						});
+						$('#all_rds').click(function(){
+							$('#rds_paper').html(showatc(atc));
+						})
+					}
+				});
+			})
+			$(function(){
+				$.ajax({
+					type:"get",
+					url:"text/stblog.txt",
+					async:false,
+					success:function(data){
+						var getJson=eval("("+data+")");
+						var selJson=getJson.length;//获取数据长度
+						$('#indexs').empty();
+						for (var i=1;i<=Math.ceil((selJson+1)/10);i++) {//根据长度来翻页
+							var temp=$('<span value=\"'+i+'\">'+i+'</span>');
+							$('#indexs').append(temp);
+						}
+						function lodstlog(j){
+							$('#sh_blog_main').empty();
+						    for (var i=selJson-((j-1)*10);i>(selJson-(10*j))&&i>=1;i--) {//倒着翻页查询
+							var h=$('<h5>'+getJson[i-1].date+'</h5>');
+							var p=$('<p>'+getJson[i-1].inner+'</p>');
+							$('#sh_blog_main').append(h);
+							$('#sh_blog_main').append(p);
+						}
+						}
+						lodstlog(1);
+						$('#indexs').delegate("span","click",function(){//动态绑定页码
+							
+							lodstlog(this.innerText);
+						})
+						
+					}
+				});
+				
+				
 				
 			})
 
