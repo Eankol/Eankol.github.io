@@ -9,21 +9,31 @@
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="css/main.css" />
+		<style type="text/css">
+			.blog-main {
+				margin-bottom: 15px;
+			}
+			.btu{
+				font-size: 16px;
+				background-color: #1B6D85;
+				color: #ffffff;
+				padding: 2px 5px;
+				margin-right: 20px;
+			}
+			.po{
+				height: 100px;
+				overflow: hidden;
+			}
+			.aa{
+				
+			}
+		</style>
 	</head>
 
 	<body>
-		<nav class="navbar navbar-default navbar-static-top site-navbar">
-			<div class="container">
-				<div align="center">
+		<nav class="navbar navbar-default site-navbar">
 
-					<div class="tx">
-
-					</div>
-				</div>
-
-			</div>
-
-			<div class="navs">
+			<div class="navs" style="margin-top:20px ;">
 
 				<a href="#" name="tabBut">Home</a>
 
@@ -38,17 +48,73 @@
 		<div class="container">
 
 			<div class="row">
+				<div class="col-sm-3 blog-main" align="center">
+					<img src="img/tx.png" height="100px" width="100px" style="border-radius: 50%;" />
+
+				</div>
 
 				<div class="col-sm-8 blog-main">
+					<h1>Ean</h1>
+					<h4>eankol@163.com</h4>
+				</div>
+				<div class="col-sm-11 blog-main">
+					现居住上海-嘉定区 │ 2016年开始工作 │ 男 │ 1994/06/27 <br /> 上海协同科技股份有限公司(上海中科50所)
+					<br />
+				</div>
+				<div class="col-sm-11 blog-main">
 
-					<div class="blog-post">
+					地点： 上海
+					<br /> 职能/职位： Web前端开发 Web前端开发工程师<br /> 行业： 计算机软件
+					<br /> 个人标签： Web前端 JavaScript Ajax bootstrap jsp 软件工程 数据库 后台<br /> 自我评价：
+					<br /> 学习能力强，对新技术有很强的好奇心和学习能力。
+					<br />
 
+				</div>
+				<div class="col-sm-11 blog-main">
+					<h3>工作经验：<span class="btu" onclick="cg()">展开</span><span class="btu" onclick="sq()">收起</span></h3>
+					<div id="01" class="po">
+						<h4>上海协同科技股份有限公司|系统集成开发部|软件开发工程师</h4>
+					2016/10-2017/11:郑州傲龙信息有限公司<br /> Web前端开发 <br /> 计算机软件 | 民营公司 | 技术部
+					<br /> 工作描述：
+					<br /> 1.负责根据UI出图来使用HTML5+CSS3+Javascript等技术完成（PC端，移动端）静态页面的编写；
+					<br /> 2.根据要求写交互效果，改善体验，修改bug；
+					<br /> 3.偶尔负责切图等工作，生成大体页面框架；
+					<br /> 4.使用bootstrap等来做响应式布局，或根据现有代码对页面进行重构；
+					<br /> 5.和后端人员一起讨论，商量并决定数据接口，并使用Ajax请求数据来使用（整理，使用jQuery做图表等）；
+					<br /> 6.偶尔涉及服务器程序的编写；
+					<br /> 7.在工作中学习新技术，和同事探讨研究新技术并运用到项目中 ……	
+					
 					</div>
-
-					<div class="blog-post">
-
+					
+				</div>
+				<div class="col-sm-11 blog-main">
+					<h3>项目经验：<span class="btu" onclick="cg1()">展开</span><span class="btu" onclick="sq1()">收起</span></h3>
+					<div id="02" class="po">
+						<h4>2017/8-2017/11：在线医疗系统</h4>
+					项目描述： 网上挂号系统，医院介绍，医生介绍 
+					<br />责任描述： 
+					<br />1.使用html5+css3+jQuery根据效果图来写页面框架；
+					<br /> 2.使用bootstrap来做PC和移动端的响应式布局，减少开发成本； 
+					<br />3.使用JavaScript来实现部分表单验证，网页交互效果等； 
+					<br />4.学习和配合写部分PHP代码，查询语句； 
+					<br />5.和开发组组员确认最终效果…… 
+					<h4>2017/5-2017/7：线下商店管理系统</h4>项目描述： 线下商店内网管理销售系统 
+					<br />责任描述： 
+					<br />1.根据用户要求完成需求分析，和开发组组员讨论出功能模块设计和UI设计； 
+					<br />2.用CSS3+html5+jQuery写出大体框架和系统结构，并实现简单的交互效果，提高用户体验； 
+					<br />3.负责部分JSP页面的编写，和查询语句的编写； 
+					<br />4.负责部分Ajax请求的编写； 
+					<br />5.向项目负责人汇报每日工作进 …… 
+					<h4>2017/2-2017/4：在线阅动平台</h4>
+					项目描述： 
+					<br />结合线下活动和线上阅读激励，鼓励用户读书和社会实践 
+					<br />责任描述：
+					<br /> 1.使用框架或者CSS3媒体查询，配合CSS3的代码，实现移动端响应式布局的实现； 
+					<br />2.使用jQuery来优化页面效果； 
+					<br />3.使用Ajax来对请求到的Jason数据进行处理； 
+					<br />4.使用处理后的Jason数据对象，使用JavaScript实现部分查询组件 ……
 					</div>
-
+					
 				</div>
 				<!-- /.blog-main -->
 
@@ -60,6 +126,20 @@
 		<footer class="footer">
 			@ean<br>email:eankol@163.com
 		</footer>
+		<script type="text/javascript">
+			function cg(){
+				var a=document.getElementById('01');
+				a.className='aa'}
+			function sq(){
+				var a=document.getElementById('01');
+				a.className='po'}
+			function cg1(){
+				var a=document.getElementById('02');
+				a.className='aa'}
+			function sq1(){
+				var a=document.getElementById('02');
+				a.className='po'}
+		</script>
 
 	</body>
 
