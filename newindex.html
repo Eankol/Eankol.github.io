@@ -115,6 +115,7 @@
 						var getJson=eval('('+data+')');
 						$('#rds_title').html(getJson.title)
 						$('#rds_date').html(getJson.date)
+						$('#pre_rds').hide();
 						var preatc=getJson.preurl;
 						var atc=getJson.url;
 						var getatc;
@@ -130,9 +131,13 @@
 						$('#rds_paper').html(showatc(preatc));
 						$('#pre_rds').click(function(){
 							$('#rds_paper').html(showatc(preatc));
+							$('#all_rds').show()
+							$('#pre_rds').hide();
 						});
 						$('#all_rds').click(function(){
 							$('#rds_paper').html(showatc(atc));
+							$('#all_rds').hide();
+							$('#pre_rds').show();
 						})
 					}
 				});
