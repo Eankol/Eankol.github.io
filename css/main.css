@@ -60,6 +60,10 @@
 	overflow: hidden;
 
 }
+p{
+	word-wrap: break-word;
+	overflow: hidden;	
+}
 .blog-post{
 	padding: 5px;
 	margin-bottom:20px ;
