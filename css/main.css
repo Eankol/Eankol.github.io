@@ -1,9 +1,4 @@
 
-
-nav a:hover{
-	color: #286090;
-	font-size: large;
-}
 .footer{
 	bottom: 0px;
 	text-align: center;
@@ -35,13 +30,22 @@ nav a:hover{
 }
 .navs{
 	text-align: center;
+	padding-bottom: 5px;
 }
 .navs a{
+
 	margin-left: 10px;
 	margin-right: 10px;
 	text-decoration: none;
-	color: #666666;
+	color: #204D74;
 	font-size: 15px;
+	border: 1px solid #204D74;
+	padding:2px 5px;
+	border-radius: 12px;
+}
+.navs a:hover{
+	color: #ffffff;
+	background-color: #204D74;
 }
 .bander{
 	text-align: center;
@@ -51,8 +55,28 @@ nav a:hover{
 	padding-top: 80px;
 }
 .inbox{
-	background-color:#F8F8F8;
+
 	word-wrap: break-word;
 	overflow: hidden;
-	margin-bottom: 20px;
+
+}
+.blog-post{
+	padding: 5px;
+	margin-bottom:20px ;
+}
+.blog-post span{
+	background-color:#23527C;
+	padding: 5px 10px;
+	margin-right: 20px;
+	color: #ffffff;
+	cursor: pointer;
+}
+.blog-post span:hover{
+	background-color: #122B40;
+}
+.blog-post:hover{
+	box-shadow:0px 0px 3px #1B6D85 ;
+}
+#sh_blog img{
+	width: 10%;
 }
