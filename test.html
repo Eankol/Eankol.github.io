@@ -5,74 +5,20 @@
  <title>Document</title>
  <script type="text/javascript" src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
  <style type="text/css">
- #box {
-  width: 100%;
-  height: 2000px;
- }
- .searchBar{
- .isFixed{
- position:fixed;
- background-color:#Fff;
- top:0;
- z-index:999;
- }
- ul {
- WIDTH:100%;
- height: 40px;
- line-height: 40px;
- display: flex;
- li {
-  font-size: 0.8rem;
-  text-align: center;
-  flex: 1;
-  i {
-  font-size: 0.9rem;
-  padding-left: 5px;
-  color: #ccc;
-  }
- }
- border-bottom: 1px solid #ddd;
- }
-}
+ 
  </style>
 </head>
-<div style="height: 30px;" >aaaaaaaal;kl;k</div>
-<div class="searchBar" id="searchBar">
- <ul :class="searchBarFixed == true ? 'isFixed' :''">
- <li>区域<i class="iconfont icon-jiantouxia"></i></li>
- <li>价格<i class="iconfont icon-jiantouxia"></i></li>
- <li>房型<i class="iconfont icon-jiantouxia"></i></li>
- <li>更多<i class="iconfont icon-jiantouxia"></i></li>
- </ul>
-</div>
-<div style="height: 30px;" id="nav">bbbbbbbbbbbbbl;kl;k</div>
-<div id="box">cccccccccccccccccmn,k</div>
+
 <body>
- <!-- vue监听滚动事件 -->
+ <textarea id="err" style="width: 300px;">
+ 	
+ </textarea>
+ <button onclick="sub_log()">提交</button>
  <script type="text/javascript">
- var vm = new Vue({
-   el:'#searchBar',
-  data() {
-   return {
-    scroll: ''
-   }
-  },
-  methods: {
-  mounted() {
-   window.addEventListener('scroll', this.handleScroll)
-  },
-  handleScroll () {
- var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
- console.log(scrollTop)
- var offsetTop = document.querySelector('#searchBar').offsetTop
- if (scrollTop > offsetTop) {
- this.searchBarFixed = true
- } else {
- this.searchBarFixed = false
- }
-}
-  }
- })
+ 	function sub_log(){
+ 		var up_log=document.getElementById('err').value;
+ 		alert(up_log);
+ 	}
  </script>
 </body>
 </html>
