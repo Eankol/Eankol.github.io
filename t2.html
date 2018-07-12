@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min 2.1.4.js"></script>
+	</head>
+	<body style="padding: 0;margin: 0;">
+		<div id="inners" style="height: 100%;width: 100%;position: absolute;">
+			<h1 style="text-align: center;" onselectstart="return false" id="ti">let's start!</h1>
+			<h1 style="text-align: center;position: relative;top: 35%;" onselectstart="return false" id="sc"></h1>
+		</div>
+		<script type="text/javascript">
+			var tim=0;
+			function getRandom1(start, end) {
+				var length = end - start + 1;
+				var num = parseInt(Math.random() * (length) + start);
+				return num;
+			}
+			var acc;
+			var colors = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+			function changebg(){
+				var co = '#' + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)]
+				var co2 = '#' + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)]
+				var co3 = '#' + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)]		
+				$('body').css('background-color', co)
+				$('#sc').css('color', co2)
+				tim+=1;
+				$('#sc').html(co+'--已执行：'+tim+"次")
+				if (co=='#FFFFFF') {
+					clearInterval(acc)
+					tim=0;
+				}
+			}
+			var tf=true;
+			
+			$('body').click(function() {
+				if (tf) {
+					acc=setInterval(changebg,1)
+					tf=!tf
+				}else{
+					clearInterval(acc)
+					tf=!tf
+				}
+				
+					
+				
+			})
+		</script>
+	</body>
+</html>
