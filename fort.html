@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>to5</title>
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			ul li{
+				list-style: none;
+				background-color: #1B6D85;
+				color: #FFFFFF;
+				margin-bottom: 10px;
+				padding: 5px;
+				width: 90%;
+				border-radius:0  20px 20px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="he">
+		请输入你的姓名：<br />
+		<input type="text" id="name" />
+		<br />
+		<button id="sub">提交</button></div>
+		<div id="ma">
+			<ul>
+				<li>让我们开始吧！(点我试试)</li>
+				<li>95年的今天，你出现在这个世上。</li>
+				<li>然而，</li>
+				<li>初三的课堂里，我们才第一次相遇。</li>
+				<li>陪伴着你成长了9年的时光</li>
+				<li>见证了你很多的时刻</li>
+				<li>这些年一路走来</li>
+				<li>都快忘了</li>
+				<li>我们曾经一起干过多少蠢事</li>
+				<li>说过多少年少的话</li>
+				<li>现在</li>
+				<li>我们都在生活的路上飞奔</li>
+				<li>你也终于遇见了自己喜欢的她</li>
+				<li>一时间居然有种，种了多年的白菜，终于被别人薅了的感觉</li>
+				<li>爱情的巨轮</li>
+				<li>也乘的下柴米油盐</li>
+				<li>希望你们可以记住彼此深爱的模样</li>
+				<li>然后一起成长</li>
+				<li>如果不开心</li>
+				<li>往联系人里面看</li>
+				<li>我们还在</li>
+				<li>这也是一封情书</li>
+				<li>写给青春的我们</li>
+				<li>生日快乐！</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$('#ma').hide()
+			var lis=$('li')
+			for(var i=1;i<lis.length;i++){
+				$(lis[i]).hide()
+			}
+			$('#sub').click(function(){
+				if ($('#name').val()=='') {
+					alert("没有名字吗？")
+				}
+				else if ($('#name').val()=='左全业') {
+					alert("我比较习惯叫你左传业~")
+				}
+				else if ($('#name').val()=='左传业') {
+					wel();
+				}else{
+					alert("填个自己的名字能怎么样？！")
+				}
+			})
+			function wel(){
+				$('#he').hide()
+				$('#ma').show(200)
+					}
+			function getRandom1(start, end) {
+				var length = end - start + 1;
+				var num = parseInt(Math.random() * (length) + start);
+				return num;
+			}
+			$('li').on('click',function(){
+				var wid=getRandom1(80,95)+'%'
+				var colors = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+				var co = '#' + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)] + colors[getRandom1(0, 15)]				
+				$(lis[lis.index(this)+1]).css('background-color',co)
+				$(lis[lis.index(this)+1]).css('width',wid)
+				$(lis[lis.index(this)+1]).show(800)
+				
+			})
+		</script>
+		
+	</body>
+</html>
