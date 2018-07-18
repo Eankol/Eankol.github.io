@@ -3,6 +3,4 @@
 	"date":"2018-04-01",
 	"preurl":"text/pre_atc.txt",
 	"url":"text/atc.txt"
-	
-
 }

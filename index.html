@@ -1,12 +1,196 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8">
-		<title>猿窝</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+		<title>猿窝——一个程序猿的自嗨天地</title>
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
+
 	<body>
-		<h1 style="text-align: center;color: #333333;">正在改版施工中……谢谢来访！ </h1>
-		<div style="text-align:center"><a href="newindex.html">test</a></div>
-		
+		<nav class="navbar navbar-default navbar-static-top site-navbar">
+			<div class="container">
+				<div align="center">
+
+					<div class="tx">
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="navs">
+
+				<a href="index.html" name="tabBut">Home</a>
+
+				<a href="#" name="tabBut" onclick="telnull()">Blog</a>
+
+				<a href="about.html" name="tabBut">About</a>
+			</div>
+
+		</nav>
+		<!--主体开始-->
+
+		<div class="container">
+
+      <div class="row">
+      	<div class="blog-main hidden-xs">
+      		<h3>Wisdom is more to be envied than riches</h3>
+      	</div>
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+          <img src="img/01.jpg" width="100%" height="100%" />
+          </div>
+
+          <div class="blog-post" id="rds">
+          <h3>推荐阅读</h3>
+          <h4 id="rds_title">标题</h4><h5 id="rds_date">日期</h5>
+          <div id="rds_paper">
+          --动态加载内容--
+          </div>
+          <span id="all_rds">展开阅读</span>
+          <span id="pre_rds">收起阅读</span>
+          </div>
+
+          <div class="blog-post">
+          <h3>短博客</h3>
+          <div id="sh_blog">
+          	<div id="sh_blog_main">
+          	--动态加载微博--
+            </div>
+          	<span id="re_index"><<</span><font id="indexs"><span>1</span></font><span id="nx_index">>></span>
+          </div>
+          </div>
+             
+
+         
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset hidden-xs">
+            <h4>更新日志:</h4>
+            <ol id="up_log">
+            	--动态加载更新日志--
+            </ol>
+            
+            </div>
+             <div class="sidebar-module sidebar-module-inset inbox">
+            <h4>使用技术:</h4>
+            <p>
+            	HTML5+CSS3&emsp;javascript&emsp; jquery&emsp; bootstrap&emsp;Ajax
+            </p>
+            
+            </div>
+          
+        </div>
+
+      </div>
+
+    </div>
+    
+		<script type="text/javascript">
+			function telnull()
+			{
+				alert("暂无内容")
+				}
+			
+			//读取json
+				
+			$(function(){
+				var getStr=$.ajax({
+					type:"get",
+					url:"text/uplogs.txt",
+					async:false
+				});
+				document.getElementById('up_log').innerHTML=getStr.responseText;
+			})
+			$(function(){
+				$.ajax({
+					type:"get",
+					url:"text/preatc.txt",
+					async:true,
+					success:function(data){
+						var getJson=eval('('+data+')');
+						$('#rds_title').html(getJson.title)
+						$('#rds_date').html(getJson.date)
+						$('#pre_rds').hide();
+						var preatc=getJson.preurl;
+						var atc=getJson.url;
+						var getatc;
+						function showatc(url){
+							getatc=$.ajax({
+								type:"get",
+								url:url,
+								async:false
+							});
+							var texts=getatc.responseText;
+							return texts;
+						}
+						$('#rds_paper').html(showatc(preatc));
+						$('#pre_rds').click(function(){
+							$('#rds_paper').html(showatc(preatc));
+							$('#all_rds').show()
+							$('#pre_rds').hide();
+						});
+						$('#all_rds').click(function(){
+							$('#rds_paper').html(showatc(atc));
+							$('#all_rds').hide();
+							$('#pre_rds').show();
+						})
+					}
+				});
+			})
+			$(function(){
+				$.ajax({
+					type:"get",
+					url:"text/stblog.txt",
+					async:false,
+					success:function(data){
+						var getJson=eval("("+data+")");
+						var selJson=getJson.length;//获取数据长度
+						$('#indexs').empty();
+						for (var i=1;i<=Math.ceil((selJson+1)/10);i++) {//根据长度来翻页
+							var temp=$('<span value=\"'+i+'\">'+i+'</span>');
+							$('#indexs').append(temp);
+						}
+						function lodstlog(j){
+							$('#sh_blog_main').empty();
+						    for (var i=selJson-((j-1)*10);i>(selJson-(10*j))&&i>=1;i--) {//倒着翻页查询
+							var h=$('<h5>'+getJson[i-1].date+'</h5>');
+							var p=$('<p>'+getJson[i-1].inner+'</p>');
+							$('#sh_blog_main').append(h);
+							$('#sh_blog_main').append(p);
+						}
+						}
+						lodstlog(1);
+						$('#indexs').delegate("span","click",function(){//动态绑定页码
+							
+							lodstlog(this.innerText);
+						})
+						
+					}
+				});
+				
+				
+				
+			})
+
+			
+
+		</script>
+
+		<!--footer开始-->
+		<footer class="footer">
+			@ean<br>email:eankol@163.com
+		</footer>
+
 	</body>
+
 </html>
