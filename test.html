@@ -3,22 +3,75 @@
 <head>
  <meta charset="UTF-8">
  <title>Document</title>
- <script type="text/javascript" src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
- <style type="text/css">
- 
- </style>
+ <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="css/jquery.eeyellow.Timeline.css" />
+
+    <script type="text/javascript" src="js/jquery.min 2.1.4.js" ></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.eeyellow.Timeline.js"></script>
 </head>
 
 <body>
- <textarea id="err" style="width: 300px;">
- 	
- </textarea>
- <button onclick="sub_log()">提交</button>
+	<div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="VivaTimeline">
+                    <dl>
+                        <dt>May 2016</dt>
+                        <dd class="pos-right clearfix">
+                            <div class="circ"></div>
+                            <div class="time">Feb 03</div>
+                            <div class="events">
+                                <div class="events-header">Event Heading</div>
+                                <div class="events-body">
+                                    <div class="row">
+                                        
+                                        <div class="events-desc">
+                                            Lorem ipsum 
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="events-footer">
+                                    123
+                                </div>
+                            </div>
+                        </dd>
+                        <dt>Feb 2016</dt>
+                        <dd class="pos-right clearfix">
+                            <div class="circ"></div>
+                            <div class="time">Jan 21</div>
+                            <div class="events">
+                                <div class="events-header">A Very Very  Event Heading</div>
+                                <div class="events-body">
+                                   
+                                    <div class="row">
+                                       
+                                        <div class="events-desc">
+                                            Lorem ipsum dolor sit , sed do eiusmod tempor 
+                                    	</div>
+                                </div>
+                                <div class="events-footer">
+
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
  <script type="text/javascript">
- 	function sub_log(){
- 		var up_log=document.getElementById('err').value;
- 		alert(up_log);
- 	}
+  $(document).ready(function () {
+            $('.VivaTimeline').vivaTimeline({
+                carousel: true,
+                carouselTime: 3000
+            });
+        });
  </script>
+
 </body>
 </html>
