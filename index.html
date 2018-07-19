@@ -6,7 +6,9 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
 		<title>猿窝——一个程序猿的自嗨天地</title>
 		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/jquery-ui.js" ></script>
 		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="css/main.css" />
 	</head>
@@ -15,10 +17,11 @@
 		<nav class="navbar navbar-default navbar-static-top site-navbar">
 			<div class="container">
 				<div align="center">
-
+				
 					<div class="tx">
 
 					</div>
+				
 				</div>
 
 			</div>
@@ -35,11 +38,11 @@
 		</nav>
 		<!--主体开始-->
 
-		<div class="container">
+		<div class="container" id="innerst">
 
       <div class="row">
       	<div class="blog-main hidden-xs">
-      		<h3>Wisdom is more to be envied than riches</h3>
+      		<h3 id="wooow">Wisdom is more to be envied than riches</h3>
       	</div>
 
         <div class="col-sm-8 blog-main">
@@ -84,7 +87,7 @@
              <div class="sidebar-module sidebar-module-inset inbox">
             <h4>使用技术:</h4>
             <p>
-            	HTML5+CSS3&emsp;javascript&emsp; jquery&emsp; bootstrap&emsp;Ajax
+            	HTML5+CSS3&emsp;javascript&emsp; jquery&emsp; bootstrap&emsp;Ajax&emsp;jquery-ui
             </p>
             
             </div>
@@ -95,7 +98,14 @@
 
     </div>
     
-		<script type="text/javascript">
+		
+		<!--footer开始-->
+		<footer class="footer">
+			@ean<br>email:eankol@163.com
+		</footer>
+
+
+	<script type="text/javascript">
 			function telnull()
 			{
 				alert("暂无内容")
@@ -181,15 +191,98 @@
 				
 				
 			})
+			var ctop=3000
+			var times=0;
+			var settimes;
+			$('.tx').click(function(){
+				times+=1;
+				if (times==2) {
+					alert("哈哈，干嘛点我？")
+				}
+				if (times==3) {
+					alert("还点啊~")
+				}
+				if (times==4) {
+					alert("难道被你发现了我的秘密？")
+				}
+				if (times==5) {
+					
+					var doms=$('*');
+				for (var i=0;i<doms.length;i++) {
+					$(doms[i]).draggable()
+				}
+				premovedom()
+				settimes=setInterval(movedom,1000/24)
+				}
+				if (times==6) {
+					window.location.reload()
+				}
+				
+			})
+			function premovedom(){
+				var lis=$('li')
+				var lis1=$('p')
+				var lis2=$('a')
+				var lis3=$('span')
+				var lis4=$('h3')
+				var lis5=$('h4')
+				var lis6=$('h5')
+				var lis7=$('img')
+				premin(lis)
+				premin(lis1)
+				premin(lis2)
+				premin(lis3)
+				premin(lis4)
+				premin(lis5)
+				premin(lis6)
+				premin(lis7)
+			}
+			function premin(lis){
+				for (var i=0;i<lis.length;i++) {
+					var tr='rotate('+getRandom1(0,180)+'deg)'
+					$(lis[i]).css({'transform':tr,'position':'absolute'})
+				}
+			}
+			function movedom(){
+				var lis=$('li')
+				var lis1=$('p')
+				var lis2=$('a')
+				var lis3=$('span')
+				var lis4=$('h3')
+				var lis5=$('h4')
+				var lis6=$('h5')
+				var lis7=$('img')
+				movins(lis)
+				movins(lis1)
+				movins(lis2)
+				movins(lis3)
+				movins(lis4)
+				movins(lis5)
+				movins(lis6)
+				movins(lis7)
+			
+			}
+			function movins(lis){
+		
+				for (var i=0;i<lis.length;i++) {
+					var speed=getRandom1(0,10)
+					
+					if (!(lis[i].offsetTop>ctop)) {
+						var top=(lis[i].offsetTop+speed)+'px'
+						$(lis[i]).css({'top':top,'position':'absolute'})
+					}
+					
+				}
+			}
+			function getRandom1(start, end) {//随机数
+				var length = end - start + 1;
+				var num = parseInt(Math.random() * (length) + start);
+				return num;
+			}
 
 			
 
 		</script>
-
-		<!--footer开始-->
-		<footer class="footer">
-			@ean<br>email:eankol@163.com
-		</footer>
 
 	</body>
 
