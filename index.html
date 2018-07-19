@@ -30,7 +30,7 @@
 
 				<a href="index.html" name="tabBut">Home</a>
 
-				<a href="#" name="tabBut" onclick="telnull()">Blog</a>
+				<a href="blogs.html" name="tabBut">Blog</a>
 
 				<a href="about.html" name="tabBut">About</a>
 			</div>
@@ -191,17 +191,11 @@
 				
 				
 			})
-			var ctop=3000
+			var ctop=2000
 			var times=0;
 			var settimes;
 			$('.tx').click(function(){
 				times+=1;
-				if (times==2) {
-					alert("哈哈，干嘛点我？")
-				}
-				if (times==3) {
-					alert("还点啊~")
-				}
 				if (times==4) {
 					alert("难道被你发现了我的秘密？")
 				}
@@ -212,7 +206,7 @@
 					$(doms[i]).draggable()
 				}
 				premovedom()
-				settimes=setInterval(movedom,1000/24)
+				settimes=setInterval(movedom,1000/60)
 				}
 				if (times==6) {
 					window.location.reload()
@@ -267,7 +261,7 @@
 				for (var i=0;i<lis.length;i++) {
 					var speed=getRandom1(0,10)
 					
-					if (!(lis[i].offsetTop>ctop)) {
+					if (!((lis[i].offsetTop+lis[i].offsetHeight)>ctop)) {
 						var top=(lis[i].offsetTop+speed)+'px'
 						$(lis[i]).css({'top':top,'position':'absolute'})
 					}

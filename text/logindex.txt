@@ -7,27 +7,17 @@
 	},{
 		'title':'test',
 		'date':'2018-07-16',
-		'type':'node.js',
-		'prop':'#'
-	},{
-		'title':'test',
-		'date':'2018-07-16',
-		'type':'java',
-		'prop':'#'
-	},{
-		'title':'test',
-		'date':'2018-07-16',
 		'type':'db',
 		'prop':'#'
 	},{
 		'title':'test',
 		'date':'2018-07-16',
-		'type':'golang',
+		'type':'logs',
 		'prop':'#'
 	},{
 		'title':'test',
 		'date':'2018-07-16',
-		'type':'netCore',
+		'type':'other',
 		'prop':'#'
 	}
 ]
