@@ -45,7 +45,7 @@
 	</head>
 
 	<body>
-		<nav class="navbar navbar-default navbar-static-top site-navbar">
+		<nav class="navbar navbar-default navbar-static-top site-navbarx">
 			<div class="container">
 				<div align="center">
 				
@@ -72,6 +72,50 @@
 		<div class="container" id="innerst">
 
       <div class="row">
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
+      	<br />
       	
 
         <div class="col-sm-12 blog-main">
@@ -114,6 +158,17 @@
 
 	<script type="text/javascript">
 		$(function(){
+			$(window).scroll(function(){
+				if($(window).scrollTop()>=107){
+					$('.tx').hide(200);
+					$('nav').addClass('navbar-fixed-top');
+				}
+				if($(window).scrollTop()<107){
+					$('.tx').show(200);
+					$('nav').removeClass('navbar-fixed-top')
+				}
+				
+			})
 			getlogs('logs')
 			$('#log_nav li').click(function(){
 				$('#b_01').css('border-color',this.style.borderColor);

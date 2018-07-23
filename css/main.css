@@ -25,12 +25,13 @@
 	border-radius: 50% 50%;
 	background-image: url(../img/tx.png);
 	background-size: 100px 100px;
-	margin: 20px;
+	margin-top: 20px;
 	
 }
 .navs{
 	text-align: center;
 	padding-bottom: 5px;
+	padding-top: 10px;
 }
 .navs a{
 

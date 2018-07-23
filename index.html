@@ -114,6 +114,17 @@
 			//读取json
 				
 			$(function(){
+				$(window).scroll(function(){
+				if($(window).scrollTop()>=107){
+					$('.tx').hide(200);
+					$('nav').addClass('navbar-fixed-top');
+				}
+				if($(window).scrollTop()<107){
+					$('.tx').show(200);
+					$('nav').removeClass('navbar-fixed-top')
+				}
+				
+			})
 				var getStr=$.ajax({
 					type:"get",
 					url:"text/uplogs.txt",
