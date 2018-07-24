@@ -18,7 +18,7 @@
 			<div class="container">
 				<div align="center">
 				
-					<div class="tx" data-toggle="tooltip" data-placement="right" title="双击我开始对话吧！">
+					<div class="tx" data-toggle="tooltip" data-placement="right" title="长按我开始对话吧！">
 
 					</div>
 				
@@ -103,6 +103,24 @@
 		<footer class="footer">
 			@ean<br>email:eankol@163.com
 		</footer>
+		
+	<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">聊天中……</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 	<script type="text/javascript">
@@ -288,9 +306,27 @@
 				var num = parseInt(Math.random() * (length) + start);
 				return num;
 			}
+			var longtap=0;
+			var islongt;
+			function islong(){
+				longtap+=1;
+				if (longtap>2) {
+					clearInterval(islongt);
+					longtap=0;
+					times=0;
+					$('#myModal').modal()
+				}
+			}
+			$('.tx').mousedown(function(){
+				islongt=setInterval(islong,500)
+			})
+			$('.tx').mouseup(function(){
+				clearInterval(islongt)
+				longtap=0;
+			})
 
 			$('.tx').dblclick(function(){
-				alert("")
+				$('#myModal').modal()
 				times=0;
 			})
 
