@@ -18,7 +18,7 @@
 			<div class="container">
 				<div align="center">
 				
-					<div class="tx">
+					<div class="tx" data-toggle="tooltip" data-placement="right" title="双击我开始对话吧！">
 
 					</div>
 				
@@ -114,10 +114,12 @@
 			//读取json
 				
 			$(function(){
+				$('.tx').tooltip('show')
 				$(window).scroll(function(){
 				if($(window).scrollTop()>=107){
 					$('.tx').hide(200);
 					$('nav').addClass('navbar-fixed-top');
+					$('*').tooltip('hide')
 				}
 				if($(window).scrollTop()<107){
 					$('.tx').show(200);
@@ -222,6 +224,7 @@
 					//window.location.reload()
 					clearInterval(settimes)
 					$('body').replaceWith(cndoms)
+					$('.tooltip').hide()
 				}
 				
 			})
@@ -286,7 +289,10 @@
 				return num;
 			}
 
-			
+			$('.tx').dblclick(function(){
+				alert("")
+				times=0;
+			})
 
 		</script>
 
