@@ -10,7 +10,6 @@
 		<script type="text/javascript" src="js/jquery.js" ></script>
 		<script type="text/javascript" src="js/jquery-ui.js" ></script>
 		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js" ></script>
 		<link rel="stylesheet" href="css/main.css" />
 	</head>
 
@@ -313,9 +312,19 @@
 				return num;
 			}
 			
-			$('.tx').on('swipe',function(){
+			var startY;
+			var endY;
+			$('.tx').mousedown(function(){
+				var e=window.event||arguments.callee.caller.arguments[0];
+				startY=e.y;
+			})
+			$('.tx').mouseup(function(){
+				var e=window.event||arguments.callee.caller.arguments[0];
+				endY=e.y;
+				if (startY!=endY) {
 					$('#myModal').modal()
-				times=0;
+					times=0;
+				}
 			})
 		
 
