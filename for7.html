@@ -7,21 +7,21 @@
 	</head>
 	<body>
 		<div align="center">
-			你喜欢这个网站吗？<br />
-			<button id="a">喜欢</button><br/>
-		<button id="b">不喜欢</button><br/></div>
+			你愿意做可可的对象，并照顾他一辈子吗？<br />
+			<button id="a">愿意</button><br/>
+		<button id="b">不愿意</button><br/></div>
 		
 		<script type="text/javascript">
 			//alert(window.innerHeight)
 			//alert(window.innerWidth)
-			$('#b').mousedown(function(){
+			$('#b').mouseover(function(){
 				var tt=getRandom(20,window.innerHeight-20)
 				var tl=getRandom(0,window.innerWidth-50)
 				$('#b').css({'position':'absolute','top':tt,'left':tl})
 			})
 			$('#a').click(function(){
-				alert("谢谢欣赏")
-				$('body').html("系统将在30s后自爆……")
+				alert("说话算数")
+				$('body').html("已存档……")
 			})
 			function getRandom(start, end) {
 				var length = end - start + 1;
