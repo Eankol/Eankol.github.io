@@ -7,9 +7,9 @@
 	</head>
 	<body>
 		<div align="center">
-			你愿意做可可的对象，并照顾他一辈子吗？<br />
-			<button id="a">愿意</button><br/>
-		<button id="b">不愿意</button><br/></div>
+			家里以后谁刷碗？谁做饭？谁打扫房间？<br />
+			<button id="a">骆骆</button><br/>
+		<button id="b">当然全部交给可可</button><br/></div>
 		
 		<script type="text/javascript">
 			//alert(window.innerHeight)
@@ -20,8 +20,12 @@
 				$('#b').css({'position':'absolute','top':tt,'left':tl})
 			})
 			$('#a').click(function(){
-				alert("说话算数")
+				alert("说话算数哦~")
 				$('body').html("已存档……")
+			})
+			$('#b').click(function(){
+				alert("好吧，我做就我做")
+				$('body').html("(づ￣ 3￣)づ")
 			})
 			function getRandom(start, end) {
 				var length = end - start + 1;
