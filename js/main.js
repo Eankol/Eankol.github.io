@@ -6,7 +6,6 @@
 			//读取json
 				
 			$(function(){
-				$('.tx').tooltip('show')
 				$(window).scroll(function(){
 				if($(window).scrollTop()>=107){
 					$('.tx').hide(200);
@@ -181,33 +180,5 @@
 				return num;
 			}
 			
-			var startY;
-			var endY;
-			$('.tx').mousedown(function(){
-				var e=window.event||arguments.callee.caller.arguments[0];
-				startY=e.y;
-			})
-			$('.tx').mouseup(function(){
-				var e=window.event||arguments.callee.caller.arguments[0];
-				endY=e.y;
-				if (startY!=endY) {
-					$('#myModal').modal()
-					times=0;
-				}
-			})
-			function chating(){
-				$.ajax({
-					type:"get",
-					url:"https://www.tuling123.com/openapi/api?key=6e67761b125040e0b667e5bbcb621454&info="+$('#inp').val(),
-					async:false,
-					dataType:'json',
-					success:function(data){
-						//alert(data.text)
-						$('#chatbody').append("<div align=\"right\"><div class=\"send\">"+$('#inp').val()+"</div><div class=\"s-right\"><div class=\"scrs-send\"></div></div></div>")
-						$('#inp').val("");
-						$('#chatbody').append("<div align=\"left\"><div class=\"reply\">"+data.text+"</div><div class=\"s-left\"><div class=\"scrs\"></div></div></div>")
-						
-					}
-				});
-			}
+	
 		
