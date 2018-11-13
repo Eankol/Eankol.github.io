@@ -1,135 +1,4 @@
-﻿<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
-		<title>猿窝——一个程序猿的自嗨天地</title>
-		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/jquery-ui.css" />
-		<script type="text/javascript" src="js/jquery.js" ></script>
-		<script type="text/javascript" src="js/jquery-ui.js" ></script>
-		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="css/main.css" />
-	</head>
-
-	<body>
-		<nav class="navbar navbar-default navbar-static-top site-navbar">
-			<div class="container">
-				<div align="center">
-				
-					<div class="tx" data-toggle="tooltip" data-placement="right" title="滑动我开始对话吧！">
-
-					</div>
-				
-				</div>
-
-			</div>
-
-			<div class="navs">
-
-				<a href="index.html" name="tabBut">Home</a>
-
-				<a href="blogs.html" name="tabBut">Blog</a>
-
-				<a href="about.html" name="tabBut">About</a>
-			</div>
-
-		</nav>
-		<!--主体开始-->
-
-		<div class="container" id="innerst">
-
-      <div class="row">
-      	<div class="blog-main hidden-xs">
-      		<h3 id="wooow">Wisdom is more to be envied than riches</h3>
-      	</div>
-
-        <div class="col-sm-8 blog-main">
-
-          <div class="blog-post">
-          <img src="img/01.jpg" width="100%" height="100%" />
-          </div>
-
-          <div class="blog-post" id="rds">
-          <h3>推荐阅读</h3>
-          <h4 id="rds_title">标题</h4><h5 id="rds_date">日期</h5>
-          <div id="rds_paper">
-          --动态加载内容--
-          </div>
-          <span id="all_rds">展开阅读</span>
-          <span id="pre_rds">收起阅读</span>
-          </div>
-
-          <div class="blog-post">
-          <h3>短博客</h3>
-          <div id="sh_blog">
-          	<div id="sh_blog_main">
-          	--动态加载微博--
-            </div>
-          	<span id="re_index"><<</span><font id="indexs"><span>1</span></font><span id="nx_index">>></span>
-          </div>
-          </div>
-             
-
-         
-
-        </div><!-- /.blog-main -->
-
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <div class="sidebar-module sidebar-module-inset hidden-xs">
-            <h4>更新日志:</h4>
-            <ol id="up_log">
-            	--动态加载更新日志--
-            </ol>
-            
-            </div>
-             <div class="sidebar-module sidebar-module-inset inbox">
-            <h4>使用技术:</h4>
-            <p>
-            	HTML5+CSS3&emsp;javascript&emsp; jquery&emsp; bootstrap&emsp;Ajax&emsp;jquery-ui
-            </p>
-            
-            </div>
-          
-        </div>
-
-      </div>
-
-    </div>
-    
-		
-		<!--footer开始-->
-		<footer class="footer">
-			@ean<br>email:eankol@163.com
-		</footer>
-		
-	<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" >
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">聊天中……</h4>
-      </div>
-      <div class="modal-body" style="overflow: auto;height: 460px;">
-   
-        
-      </div>
-      <div class="modal-footer">
-      	<div class="row">	<div class="col-xs-8"><input type="text" id="inp"  class="btn" style="width: 100%;border: #666 1px solid;cursor: text;"/></div>
-      	<div class="col-xs-4" align="left"><button type="button" class="btn btn-danger">发送</button></div>
-      	</div>
-      
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-
-	<script type="text/javascript">
-			function telnull()
+	function telnull()
 			{
 				alert("暂无内容")
 				}
@@ -326,10 +195,19 @@
 					times=0;
 				}
 			})
+			function chating(){
+				$.ajax({
+					type:"get",
+					url:"https://www.tuling123.com/openapi/api?key=6e67761b125040e0b667e5bbcb621454&info="+$('#inp').val(),
+					async:false,
+					dataType:'json',
+					success:function(data){
+						//alert(data.text)
+						$('#chatbody').append("<div align=\"right\"><div class=\"send\">"+$('#inp').val()+"</div><div class=\"s-right\"><div class=\"scrs-send\"></div></div></div>")
+						$('#inp').val("");
+						$('#chatbody').append("<div align=\"left\"><div class=\"reply\">"+data.text+"</div><div class=\"s-left\"><div class=\"scrs\"></div></div></div>")
+						
+					}
+				});
+			}
 		
-
-		</script>
-
-	</body>
-
-</html>

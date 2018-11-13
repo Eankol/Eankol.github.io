@@ -73,7 +73,8 @@
 		<script type="text/javascript">
 			setInterval(function(){
 				var len=document.getElementById('l1').offsetWidth
-				$("#l1").css({"width":((len+1)==800?0:(len+1))+'px'})
+				var c1=parseInt(len/100)
+				$("#l1").css({"width":((len+1)==800?0:(len+1))+'px','background-color':'#'+("c"+"b"+c1+""+c1+""+1+""+1)+''})
 			},10)
 			var len2=0
 			setInterval(function(){
