@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .nav
+    .con_blogList
+      h3 博文列表&emsp;
+        input(type="text",name="selectBlogs",placeholder="搜索(日期/标题/分类))……")
+      ol
+        li(name="blog") test
+        li(name="blog") test2
+    .con_right 
+      h3 写博文
+      div
+        | 标题：
+        input(type="text", name="blogTitle",style="width:60%")
+      div
+        | 分类：
+        select(name="tag")
+          option(value="1") Java
+        | &emsp;
+        button(id="addTag", onclick="showAddBtn()") 新建分类
+        | &emsp;日期：
+        span#date
+      div#newTag
+        | 新建分类：
+        input(type="text", name="newTag")
+        | &emsp;
+        button#subAddTag 提交
+        | &emsp;
+        button(onclick="hideAddBtn()") 收起
+      div
+        div#editor
+      div(style="padding:10px 40px 30px 20px")
+        button#newBlog(style="float:left;position:relative", onclick="newBlog()") 新文章
+        button#saveBlog(style="float:right;position:relative") 保存文章
+
+  script(src="/js/axios.min.js")
+  script(src="/js/wangEditor.min.js")
+  script(src="/js/sweetalert.min.js")
+  script(src="/js/index.js")
