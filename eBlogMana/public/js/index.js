@@ -1,6 +1,7 @@
 let isChange=false;
 let blogCode='';
 let dates=document.getElementById('date');
+let baseUrl='http://127.0.0.1:3000';
 function frshDate(){
     let ndate = new Date();
     let nowTime =  ndate.getFullYear()+"-"+
@@ -94,4 +95,52 @@ function addLisen(){
 }
 addLisen();
 
+function changeTagOpt(data){
+  var topt=document.getElementsByName('tag')[0];
+  topt.innerHTML='';
+  if(data.length!==0){
+    for(let i=0;i<data.length;i++){
+      let tmp="<option value=\""+data[i].id+"\">"+data[i].name+"</option>";
+      topt.innerHTML+=tmp;
+    }
+  }
+}
+
+function saveBlog(){
+  let blogTitle=document.getElementsByName('blogTitle')[0].value;
+  let dataTime=document.getElementById('date').innerText;
+  let tag=document.getElementsByName('tag')[0].value;
+  if (blogTitle.trim()=='') {
+    swal("请输入标题！");
+    return false;
+  }
+  let sendmsg={
+    blogTitle:blogTitle,
+    dataTime:dataTime,
+    tag:tag,
+    inner:editor.txt.html()
+  };
+  axios.post(baseUrl+'/getBlog',sendmsg).then(function (response) {
+    //TODO
+    console.log(response.data)
+  }).catch(function (error) {
+    console.log(error);
+  });
+  console.log(editor.txt.html());
+}
+function saveTag(){
+  axios.post(baseUrl+'/getTag', {
+    tagName:document.getElementsByName('newTag')[0].value
+  })
+  .then(function (response) {
+    changeTagOpt(response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+axios.get(baseUrl+"/getTag").then((res)=>{
+  changeTagOpt(res.data);
+}).catch((err)=>{console.log(err)}).finally(()=>{});
 

@@ -25,14 +25,14 @@ block content
         | 新建分类：
         input(type="text", name="newTag")
         | &emsp;
-        button#subAddTag 提交
+        button#subAddTag(onclick="saveTag()") 提交
         | &emsp;
         button(onclick="hideAddBtn()") 收起
       div
         div#editor
       div(style="padding:10px 40px 30px 20px")
         button#newBlog(style="float:left;position:relative", onclick="newBlog()") 新文章
-        button#saveBlog(style="float:right;position:relative") 保存文章
+        button#saveBlog(style="float:right;position:relative", onclick="saveBlog()") 保存文章
 
   script(src="/js/axios.min.js")
   script(src="/js/wangEditor.min.js")
