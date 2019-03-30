@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+		<title>猿窝——所有文章</title>
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/jquery-ui.js" ></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/main.css" />
+		<style type="text/css">
+			#log_nav li{
+				float: left;
+				list-style: none;
+				padding-top: 5px;
+				padding-left: 15px;
+				padding-right: 15px;
+				margin-top: 10px;
+				margin-right: 10px;
+				border-radius: 5px 5px 0px 0px;
+				cursor: pointer;
+				border: 1px #1B6D85 solid;
+				border-bottom: hidden;
+			}
+			#log_nav li:hover{
+				border-color: #003EFF;
+				box-shadow: #666666 0px 0px 3px;
+			}
+			.b1{
+				border:2px #666666 solid;
+				border-radius: 10px;
+				padding-top: 15px;
+				margin-bottom:20px ;
+				border-top: 1px #666666 solid;
+				border-bottom:6px #666666 solid;
+			}
+			.b1 li{
+				margin-bottom: 15px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default navbar-static-top site-navbarx">
+			<div class="container">
+				<div align="center">
+				
+					<div class="tx">
+
+					</div>
+				
+				</div>
+
+			</div>
+
+			<div class="navs">
+
+				<a href="index.html" name="tabBut">Home</a>
+
+				<a href="blogs.html" name="tabBut">Blog</a>
+
+				<a href="about.html" name="tabBut">About</a>
+			</div>
+
+		</nav>
+		<!--主体开始-->
+
+		<div class="container" id="innerst">
+
+      <div class="row">
+
+        <div class="col-sm-12 blog-main">
+
+         
+         
+         
+          	<div id="blog_index">
+          	<ul id="log_nav">
+          		<li style="border-color: #666666;">日志</li>
+          		<li style="border-color: #449D44;">前端</li>
+          		<li style="border-color: #AC2925;">数据库</li>
+          	</ul>
+          	</div>
+          	<div style="clear: both;"></div>
+          	<div id="b_01" class="b1">
+          		<ol id="blog_index_inner">
+          			
+          		</ol>
+          	</div>
+          
+         
+
+         
+
+        </div><!-- /.blog-main -->
+
+     
+
+      </div>
+
+    </div>
+    
+		
+		<!--footer开始-->
+		<footer class="footer">
+			@ean<br>email:eankol@163.com
+		</footer>
+
+
+	<script type="text/javascript">
+		$(function(){
+			$(window).scroll(function(){
+				if($(window).scrollTop()>=107){
+					$('.tx').hide(200);
+					$('nav').addClass('navbar-fixed-top');
+				}
+				if($(window).scrollTop()<107){
+					$('.tx').show(200);
+					$('nav').removeClass('navbar-fixed-top')
+				}
+				
+			})
+			getlogs('logs')
+			$('#log_nav li').click(function(){
+				$('#b_01').css('border-color',this.style.borderColor);
+				var type=this.innerText=='日志'?'logs':this.innerText=='前端'?'front-end':'db';
+				getlogs(type)
+			})
+			function getlogs(type){
+				$.ajax({
+					type:"get",
+					url:"text/logindex.txt",
+					async:false,
+					success:function(data){
+						data=eval('('+data+')')
+						$('#blog_index_inner').empty()
+						for (var i=0;i<data.length;i++) {
+							if (data[i].type==type) {
+								var tmp='<li value=\''+data[i].prop+'\'>'+data[i].date+'&nbsp;'+data[i].title+'</li>'
+								$('#blog_index_inner').append(tmp)
+							}
+						}
+					}
+				});
+			}
+			$('#blog_index_inner').on('click','li',function(){
+				window.open($(this).attr('value'))
+			})
+			
+		})
+			
+	</script>
+
+	</body>
+
+</html>

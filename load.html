@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			loading……
+		</title>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<style type="text/css">
+			.containers{
+				width: 800px;
+				margin: 20px;
+				height: 20px;
+				background-color: #1B6D85;
+				overflow: hidden;
+			}
+			.loaders{
+				width: 80px;
+				height: 100%;
+				background-color:#D58512;
+			}
+			.l2{
+				background-color: #EDEDED;
+				border-radius: 10px 10px;
+				position:relative;
+				left: 2px;
+			}
+			.l3{
+				width: 20px;
+				position: relative;
+				background-color: #E2E6EA;
+				border-radius: 50%;
+				margin-left: 1px;
+				left: -21px;
+				float: left;
+			}
+			.l4{
+				border-radius: 10px 10px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		
+		<div title="第一个">
+			<div class="containers">
+				<div class="loaders" id="l1"></div>
+			</div>
+		</div>
+		
+		<div title="第二个">
+			<div class="containers">
+				<div class="loaders l2" id="l2"></div>
+			</div>
+		</div>
+		
+		<div title="第三个">
+			<div class="containers">
+				<div class="loaders l3" name="l3"></div>
+				<div class="loaders l3" name="l3"></div>
+				<div class="loaders l3" name="l3"></div>
+			</div>
+		</div>
+		
+		<div title="第四个">
+			<div class="containers l4">
+				<div class="loaders l3" name="l4"></div>
+				<div class="loaders l3" name="l4"></div>
+				<div class="loaders l3" name="l4"></div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			setInterval(function(){
+				var len=document.getElementById('l1').offsetWidth
+				var c1=parseInt(len/100)
+				$("#l1").css({"width":((len+1)==800?0:(len+1))+'px','background-color':'#'+("c"+"b"+c1+""+c1+""+1+""+1)+''})
+			},10)
+			var len2=0
+			setInterval(function(){
+				len2=(len2>800?0:(len2+1))
+				$('#l2').css({'left':len2+'px'})
+			},10)
+			var len3l=0
+			setInterval(function(){
+				len3l=(len3l>800?0:(len3l+1))
+				var len3=document.getElementsByName('l3')
+				for (var i=0;i<len3.length;i++) {
+					$(len3[i]).css({'left':((i+1)*len3l)+'px'})
+				}
+			},10)
+			
+			
+			var l4=0;
+			setInterval(function(){
+				var len4=document.getElementsByName('l4')
+				for (var i=0;i<len4.length;i++) {
+					if (len4[i].offsetLeft<(800+8-((2-i)*21))) {
+						$(len4[i]).css({'left':(l4*(i+1))+'px'})
+					}
+				}
+				if (l4<=800) {
+					l4+=1;
+				}else{
+					l4=0;
+					for (var i=0;i<len4.length;i++) {
+					
+						$(len4[i]).css({'left':l4+'px'})	
+				}
+				}
+			},1)
+		</script>
+		
+	</body>
+</html>

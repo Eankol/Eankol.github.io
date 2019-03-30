@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+	<body>
+		<div align="center">
+			家里以后谁刷碗？谁做饭？谁打扫房间？<br />
+			<button id="a">骆骆</button><br/>
+		<button id="b">当然全部交给可可</button><br/></div>
+		
+		<script type="text/javascript">
+			//alert(window.innerHeight)
+			//alert(window.innerWidth)
+			$('#b').mouseover(function(){
+				var tt=getRandom(20,window.innerHeight-20)
+				var tl=getRandom(0,window.innerWidth-50)
+				$('#b').css({'position':'absolute','top':tt,'left':tl})
+			})
+			$('#a').click(function(){
+				alert("说话算数哦~")
+				$('body').html("已存档……")
+			})
+			$('#b').click(function(){
+				alert("好吧，我做就我做")
+				$('body').html("(づ￣ 3￣)づ")
+			})
+			function getRandom(start, end) {
+				var length = end - start + 1;
+				var num = parseInt(Math.random() * (length) + start);
+				return num;
+			}
+			
+		</script>
+	</body>
+</html>
