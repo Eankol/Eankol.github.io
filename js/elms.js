@@ -1,5 +1,7 @@
 (function(global, bean) {
-    global.elms = bean();
+    var beans = bean();
+    global.elms = beans.elms;
+    global.$ = beans.$;
 
 }(this, function() {
 
@@ -51,9 +53,9 @@
                 return val;
             },
             set: function(newVal) {
-                if (val === newVal) {
-                    return;
-                }
+                // if (val === newVal) {
+                //     return;
+                // }
                 //取监听池监听修改内容；
                 if ($data[k] && $data[k].length > 0) {
                     for (let e of $data[k]) {
@@ -76,10 +78,18 @@
     }
 
     function elms(options) {
+
+
+
+        //function 检查；
+        var methods = options.methods;
+        for (let m in methods) {
+            $[m] = methods[m]
+        }
+
         //注入对象获取；
         var elements = options.elements
         addWatch(elements)
-
         var option = options.data; //传入属性；
         //传入属性绑定；
         for (let k in option) {
@@ -90,33 +100,12 @@
             $[k] = options.data[k]
         }
 
-        //function 检查；
-        var methods = options.methods;
-        for (let m in methods) {
-            $[m] = methods[m]
-        }
-
-        setTimeout(() => {
-            $.test = "数据改变,"
-        }, 5000);
-        var b = 0;
-        setTimeout(() => {
-            $.hello = "我也变了"
-        }, 7000)
-
-        console.log($)
-
         document.addEventListener('dblclick', function() {
             $.show()
         })
 
 
-
-
-
-
-
     }
 
-    return elms;
+    return { elms, $ };
 }))

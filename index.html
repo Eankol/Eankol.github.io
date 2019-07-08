@@ -7,12 +7,22 @@
     <title>猿窝——一个程序猿的自嗨天地</title>
     <script src="js/elms.js"></script>
     <script src="js/startApp.js"></script>
-    <script src="js/test.js"></script>
 </head>
 
 <body>
     <div id="app">{{test}}{{hello}}</div>
+    <div id="22">
+        这个框架可以做什么？{{shows}}
+        <br/> {{aa}}
+    </div>
     <input type="text" el-v="{{test}}" />
+    <script>
+        var j = 0;
+        setInterval(function() {
+            j++
+            $.aa = j;
+        }, 800)
+    </script>
 
 </body>
 

@@ -3,17 +3,29 @@ window.onload = function() {
     new elms({
         data: {
             hello: "this is elms!",
-            test: "hi,"
+            test: "hi,",
+            shows: "（双击查看）",
+            aa: 0
         },
         elements: [{
-            el: document.getElementById("app")
+            el: document.getElementById("app"),
+            actions: [{
+                action: 'click',
+            }]
+        }, {
+            el: document.getElementById("22"),
+            actions: [{
+                action: 'click',
+                test: '$.tests(\'5\')'
+            }]
         }],
         methods: {
-            tests() {
-                alert("method tests")
+            tests(a) {
+                console.log(a)
             },
             show() {
-                alert("method show")
+                $.tests('this is a test msg')
+                $.shows = "什么都做不了！"
             }
         }
     })
