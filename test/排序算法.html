@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <h3>常见算法：</h3>
     <input type="text" id="input">排序算法:
     <select name="type" id="type" value="完全随机">
         <option value="完全随机">完全随机</option>
@@ -16,6 +17,7 @@
     </select>
     <button id="ok">排序</button>
     <div>排序后： <span id="res"></span> </div>
+    <div id="inner" style="background-color: #333;color:#fff;padding:10px;"></div>
     <script>
         //define swap to change two values in an array;
         Array.prototype.swap = function(a, b) {
@@ -33,6 +35,7 @@
         function doOk() {
             var arr = input.value.split(',')
             var after;
+            var s;
             if (arr.length > 0) {
                 for (let i = 0; i < arr.length; i++) {
                     arr[i] = parseInt(arr[i])
@@ -40,16 +43,22 @@
                 switch (type.value) {
                     case "完全随机":
                         after = completelyRandom(arr);
+                        s = completelyRandom;
                         break;
                     case "冒泡排序":
                         after = bubble(arr)
+                        s = bubble;
                         break;
                     default:
                         break;
                 }
             }
             res.innerHTML = after;
+            var a = s + "";
+            a = a.replace(/[\r|\n]/g, '<br/>')
+            a = a.replace(/ /g, "&nbsp;")
 
+            document.getElementById("inner").innerHTML = a
         }
 
         //完全随机排序；
@@ -67,7 +76,7 @@
         function bubble(arr) {
             let arrs = arr;
             for (let j = 0; j < arrs.length; j++) {
-                for (let i = 0; i < arrs.length - 1; i++) {
+                for (let i = 0; i < arrs.length - j; i++) {
                     //if this value smaller than next one,change the value;
                     if (arrs[i] > arrs[i + 1]) {
                         arrs.swap(i, i + 1)
