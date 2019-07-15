@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input">排序算法:
+    <select name="type" id="type" value="完全随机">
+        <option value="完全随机">完全随机</option>
+        <option value="冒泡排序">冒泡排序</option>
+    </select>
+    <button id="ok">排序</button>
+    <div>排序后： <span id="res"></span> </div>
+    <script>
+        //define swap to change two values in an array;
+        Array.prototype.swap = function(a, b) {
+            let value = this[a]
+            this[a] = this[b];
+            this[b] = value;
+        }
+
+        var input = document.getElementById("input")
+        var button = document.getElementById("ok")
+        var type = document.getElementById("type")
+        var res = document.getElementById("res")
+        button.addEventListener("click", doOk);
+
+        function doOk() {
+            var arr = input.value.split(',')
+            var after;
+            if (arr.length > 0) {
+                for (let i = 0; i < arr.length; i++) {
+                    arr[i] = parseInt(arr[i])
+                }
+                switch (type.value) {
+                    case "完全随机":
+                        after = completelyRandom(arr);
+                        break;
+                    case "冒泡排序":
+                        after = bubble(arr)
+                        break;
+                    default:
+                        break;
+                }
+            }
+            res.innerHTML = after;
+
+        }
+
+        //完全随机排序；
+        function completelyRandom(arr) {
+            let arrs = arr;
+            for (let i = 0; i < arrs.length; i++) {
+                //get a random index to change value;
+                let index = Math.floor(Math.random() * arrs.length);
+                //change the values;
+                arrs.swap(i, index);
+            }
+            return arrs;
+        }
+        //冒泡排序；
+        function bubble(arr) {
+            let arrs = arr;
+            for (let j = 0; j < arrs.length; j++) {
+                for (let i = 0; i < arrs.length - 1; i++) {
+                    //if this value smaller than next one,change the value;
+                    if (arrs[i] > arrs[i + 1]) {
+                        arrs.swap(i, i + 1)
+                    }
+                }
+            }
+
+            return arrs;
+        }
+    </script>
+
+</body>
+
+</html>

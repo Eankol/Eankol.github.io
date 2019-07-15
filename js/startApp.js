@@ -5,7 +5,7 @@ window.onload = function() {
             hello: "this is elms!",
             test: "hi,",
             shows: "（双击查看）",
-            aa: 0
+            aa: Math.random()
         },
         elements: [{
             el: document.getElementById("app"),
