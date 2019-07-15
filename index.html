@@ -5,19 +5,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
     <title>猿窝——一个程序猿的自嗨天地</title>
+    <link rel="stylesheet" href="./css/main.css">
     <script src="js/elms.js"></script>
     <script src="js/startApp.js"></script>
 </head>
 
 <body>
-    <div id="app">{{test}}{{hello}}</div>
-    <div id="22">
-        这个框架可以做什么？{{shows}}
-        <br/> {{aa}}
+    <nav id="nav">
+        <div class="flag">MY GITHUB</div>
+        <img src="./img/tx.png" height="100px" width="100px" class="prefile">
+        <div><span>日志</span><span>其它</span></div>
+    </nav>
+    <div id="app">
+        123
     </div>
-    <input type="text" el-v="{{test}}" />
+    <script>
+        document.getElementsByClassName("flag")[0].addEventListener("click", function() {
+            window.open("https://github.com/Eankol", "blank")
+        })
     </script>
-
 </body>
 
 </html>
