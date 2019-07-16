@@ -20,6 +20,18 @@
         {{inner}}
     </div>
     <script>
+        new elms({
+            data: {
+                inner: ""
+            },
+            elements: [{
+                el: document.getElementById("app"),
+                actions: [{
+                    action: 'click',
+                }]
+            }],
+            methods: {}
+        })
         document.getElementsByClassName("flag")[0].addEventListener("click", function() {
             window.open("https://github.com/Eankol", "blank")
         })
