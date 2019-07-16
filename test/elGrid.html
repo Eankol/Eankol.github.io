@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="800px" height="500px" id="app"></canvas>
+    <script>
+        var canvas = document.getElementById("app")
+        var ctx = canvas.getContext('2d')
+        var width = 800;
+        var height = 500;
+        var padding = 20;
+        var tal = 15;
+        ctx.beginPath();
+        ctx.moveTo(padding, height - padding);
+        ctx.lineTo(width - padding, height - padding);
+        ctx.moveTo(padding, height - padding);
+        ctx.lineTo(padding, padding);
+        for (let i = padding; i < width - padding; i += tal) {
+            ctx.moveTo(i, height - padding)
+            ctx.lineTo(i, height - padding - 5)
+        }
+        for (let i = height - padding; i > padding; i -= tal) {
+            ctx.moveTo(padding, i)
+            ctx.lineTo(padding + 5, i)
+        }
+
+        ctx.stroke();
+    </script>
+</body>
+
+</html>
