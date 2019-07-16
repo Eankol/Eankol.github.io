@@ -9,6 +9,18 @@
 
     var $data = {} //数据监听池；
 
+    $.get = (url, callback) => {
+        var httpRequest = new XMLHttpRequest()
+        httpRequest.open("GET", url)
+        httpRequest.setRequestHeader("Content-Type", "application/json")
+        httpRequest.send();
+        httpRequest.onreadystatechange = function() {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                callback(eval('(' + httpRequest.responseText + ')'))
+            }
+        }
+    }
+
 
     function addWatch(elements) {
         if (elements && elements.length > 0) {
