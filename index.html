@@ -17,14 +17,14 @@
         <div><span>日志</span><span>其它</span></div>
     </nav>
     <div id="app">
-
+        {{inner}}
     </div>
     <script>
         document.getElementsByClassName("flag")[0].addEventListener("click", function() {
             window.open("https://github.com/Eankol", "blank")
         })
         $.get("http://www.docdt.cn/data/20190716", function(a) {
-            document.getElementById("app").innerHTML = a.inner
+            $.inner = a.inner
         })
     </script>
 </body>

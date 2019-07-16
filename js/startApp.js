@@ -2,18 +2,17 @@ window.onload = function() {
     //加载内容；
     new elms({
         data: {
-            // hello: "this is elms!",
+            inner: "",
             // test: "hi,",
             // shows: "（双击查看）",
             // aa: Math.random()
         },
-        elements: [
-            //     {
-            //     el: document.getElementById("app"),
-            //     actions: [{
-            //         action: 'click',
-            //     }]
-            // }, {
+        elements: [{
+                el: document.getElementById("app"),
+                actions: [{
+                    action: 'click',
+                }]
+            } //,{
             //     el: document.getElementById("22"),
             //     actions: [{
             //         action: 'click',
