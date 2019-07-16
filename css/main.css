@@ -48,7 +48,7 @@ body {
 
 .flag {
     transform: rotate(-45deg);
-    background-color: 1485B3;
+    background-color: #1485B3;
     color: #FFF;
     text-align: center;
     font-size: 20px;
