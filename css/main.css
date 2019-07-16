@@ -32,11 +32,11 @@ body {
     border: none;
     margin: 0px 5px;
     margin-bottom: 5px;
-    border: rgb(42, 160, 196) 1px solid;
+    border: #1485B3 1px solid;
     font-size: 14px;
     padding: 1px 12px;
     border-radius: 16px;
-    color: rgb(42, 160, 196);
+    color: 1485B3;
     cursor: pointer;
 }
 
@@ -48,7 +48,7 @@ body {
 
 .flag {
     transform: rotate(-45deg);
-    background-color: rgb(42, 160, 196);
+    background-color: 1485B3;
     color: #FFF;
     text-align: center;
     font-size: 20px;
