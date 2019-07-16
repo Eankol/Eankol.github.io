@@ -1,0 +1,96 @@
+[{
+    title: "算法",
+    date: "2019-07-15",
+    author: "Ean",
+    inner: "<p><p><strong>算法：<span></span></strong></p><p style=\"text-indent:21.0pt;\">" +
+        "                算法（Algorithm）是指解题方案的准确而完整的描述，是一系列解决问题的清晰指令，算法代表着用系统的方法描述解决问题的策略机制。也就是说，能够对一定规范的输入，在有限时间内获得所要求的输出。如果一个算法有缺陷，或不适合于某个问题，执行这个算法将不会解决这个问题。不同的算法可能用不同的时间、空间或效率来完成同样的任务。一个算法的优劣可以用空间复杂度与时间复杂度来衡量。" +
+        "            </p>" +
+        "            <p style=\"text-indent:21.0pt;\">" +
+        "                &nbsp;" +
+        "            </p>" +
+        "            <p>" +
+        "                <strong>算法的复杂度：<span></span></strong>" +
+        "            </p>" +
+        "            <p align=\"left\" style=\"text-align:left;text-indent:24.0pt;\">" +
+        "                同一问题可用不同算法解决，而一个算法的质量优劣将影响到算法乃至程序的效率。<span>算法分析</span>的目的在于选择合适算法和改进算法。一个算法的评价主要从<span>时间复杂度</span>和<span>空间复杂度</span>来考虑。" +
+        "            </p>" +
+        "            <p align=\"left\" style=\"text-align:left;\">" +
+        "                时间复杂度" +
+        "            </p>" +
+        "            <p align=\"left\" style=\"text-align:left;text-indent:24.0pt;\">" +
+        "                算法的时间复杂度是指执行算法所需要的计算工作量。一般来说，计算机算法是问题规模n 的函数f(n)，算法的时间复杂度也因此记做。" +
+        "            </p>" +
+        "            <p align=\"left\" style=\"text-align:left;text-indent:24.0pt;\">" +
+        "                T(n)=Ο(f(n))" +
+        "            </p>" +
+        "            <p align=\"left\" style=\"text-align:left;text-indent:24.0pt;\">" +
+        "                因此，问题的规模n 越大，算法执行的时间的增长率与f(n) 的增长率正相关，称作<span>渐进</span><span>时间复杂度</span>（Asymptotic Time Complexity）。" +
+        "            </p>" +
+        "            <p align=\"left\" style=\"text-align:left;\">" +
+        "                空间复杂度" +
+        "            </p>" +
+        "            <p align=\"left\" style=\"text-align:left;text-indent:24.0pt;\">" +
+        "                算法的空间复杂度是指算法需要消耗的内存空间。其计算和表示方法与时间<span>复杂度</span>类似，一般都用复杂度的渐近性来表示。同时间复杂度相比，空间复杂度的分析要简单得多。" +
+        "            </p>" +
+        "            <p>" +
+        "                <span>&nbsp;</span>" +
+        "            </p>" +
+        "            <p>" +
+        "                <strong>常见算法<span>/</span>有意思的算法：<span></span></strong>" +
+        "            </p>" +
+        "            <p>" +
+        "                <strong>&nbsp;</strong>" +
+        "            </p>" +
+        "            <p>" +
+        "                <b>冒泡排序</b><b></b>" +
+        "            </p>" +
+        "            <p style=\"text-indent:21.0pt;\">" +
+        "                比较相邻的元素。如果第一个比第二个大，就交换他们两个。.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。" +
+        "            </p>" +
+        "            <p align=\"left\" style=\"text-align:left;background:#1E1E1E;\">" +
+        "                <span style=\"color:#FFFFFF;\">function bubble(arr) {</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let arrs = arr;</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (let j = 0; j &lt; arrs.length; j++) {</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (let i = 0; i &lt; arrs.length - j; i++) {</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //if this value smaller than next one,change the value;</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (arrs[i] &gt; arrs[i + 1]) {</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; arrs.swap(i, i + 1)</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return arrs;</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span>" +
+        "            </p>" +
+        "            <p>" +
+        "                &nbsp;" +
+        "            </p>" +
+        "            <p>" +
+        "                &nbsp;" +
+        "            </p>" +
+        "            <p>" +
+        "                <b>洗牌（公平随机排序）算法</b><b></b>" +
+        "            </p>" +
+        "            <p style=\"text-indent:21.0pt;\">" +
+        "                对于生成的排列，每一个元素都能独立等概率地出现在每一个位置。或者反过来，每一个位置都能独立等概率地放置每个元素。" +
+        "            </p>" +
+        "            <p align=\"left\" style=\"text-align:left;background:#1E1E1E;\">" +
+        "                <span style=\"color:#FFFFFF;\">function completelyRandom(arr) {</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let arrs = arr;</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (let i = 0; i &lt; arrs.length; i++) {</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //get a randomindex to change value;</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let index = Math.floor(Math.random() * arrs.length);</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //change the values;</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; arrs.swap(i, index);</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return arrs;</span>" +
+        "                <br><span style=\"color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span>" +
+        "            </p>" +
+        "            <p>" +
+        "                &nbsp;" +
+        "            </p>" +
+        "            <p>" +
+        "                &nbsp;" +
+        "            </p>" +
+        "        </p>"
+}]
