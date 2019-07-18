@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>数组合并去重</h3>
+    <div>模拟数据1大小： <input type="text" id="arr1" oninput="addData(this)"> 模拟数据2大小： <input type="text" id="arr2" oninput="addData(this)"> 去重方法：
+        <select id="type">
+            <option value="对象去重法">对象去重法</option>
+        </select><button onclick="doOk()">去重</button></div>
+    <div>
+        模拟数据1：
+        <span id="arr1_inner" style="word-wrap:break-word" ondblclick="cleanInner(this)"></span>
+        <br> 模拟数据2:
+        <span id="arr2_inner" style="word-wrap:break-word" ondblclick="cleanInner(this)"></span>
+    </div>
+
+    <div id="time">耗时：</div>
+    结果：
+    <div id="res" style="word-wrap:break-word" ondblclick="cleanInner(this)"></div>
+    <script>
+        var arrs = {
+            arr1: [],
+            arr2: []
+        }
+        var res = [];
+
+        function cleanInner(a) {
+            a.innerHTML = "<a onclick=\"showInner(this)\">已隐藏</a>"
+        }
+
+        function showInner(a) {
+            console.log(a.parentNode.id)
+            var key = a.parentNode.id
+            switch (key) {
+                case "arr1_inner":
+                    a.parentNode.innerHTML = arrs.arr1
+                    break;
+                case "arr2_inner":
+                    a.parentNode.innerHTML = arrs.arr2
+                    break;
+                case "res":
+                    a.parentNode.innerHTML = res
+                    break;
+                default:
+                    break;
+            }
+            return 0;
+        }
+
+
+        function addData(a) {
+            arrs[a.id] = [];
+            for (let i = 0; i < parseInt(a.value); i++) {
+                arrs[a.id].push(Math.floor(Math.random() * parseInt(a.value)))
+            }
+            document.getElementById(a.id + "_inner").innerHTML = arrs[a.id]
+        }
+
+        function doOk() {
+            var key = document.getElementsByTagName('select')[0].value
+            var t = document.getElementById("time")
+            switch (key) {
+                case "对象去重法":
+                    var s = new Date().getTime();
+                    res = distinct(arrs.arr1, arrs.arr2)
+                    var e = new Date().getTime();
+                    break;
+                default:
+                    break;
+            }
+            document.getElementById("res").innerHTML = res
+
+            t.innerHTML = "耗时：" + ((s - e) + "mm")
+        }
+
+
+        function distinct(a, b) {
+            let arr = a.concat(b)
+            let result = []
+            let obj = {}
+
+            for (let i of arr) {
+                if (!obj[i]) {
+                    result.push(i)
+                    obj[i] = 1
+                }
+            }
+            return result
+        }
+    </script>
+</body>
+
+</html>
