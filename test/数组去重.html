@@ -13,6 +13,10 @@
     <div>模拟数据1大小： <input type="text" id="arr1" oninput="addData(this)"> 模拟数据2大小： <input type="text" id="arr2" oninput="addData(this)"> 去重方法：
         <select id="type">
             <option value="对象去重法">对象去重法</option>
+            <option value="set去重法">set去重法</option>
+            <option value="incloud去重法">incloud去重法</option>
+            <option value="filter去重法">filter去重法</option>
+            
         </select><button onclick="doOk()">去重</button></div>
     <div>
         模拟数据1：
@@ -32,7 +36,7 @@
         var res = [];
 
         function cleanInner(a) {
-            a.innerHTML = "<a onclick=\"showInner(this)\">已隐藏</a>"
+            a.innerHTML = "<a onclick=\"showInner(this)\">已隐藏(单击显示)</a>"
         }
 
         function showInner(a) {
@@ -40,13 +44,13 @@
             var key = a.parentNode.id
             switch (key) {
                 case "arr1_inner":
-                    a.parentNode.innerHTML = arrs.arr1
+                    a.parentNode.innerHTML = "(双击隐藏)" + arrs.arr1
                     break;
                 case "arr2_inner":
-                    a.parentNode.innerHTML = arrs.arr2
+                    a.parentNode.innerHTML = "(双击隐藏)" + arrs.arr2
                     break;
                 case "res":
-                    a.parentNode.innerHTML = res
+                    a.parentNode.innerHTML = "(双击隐藏)" + res
                     break;
                 default:
                     break;
@@ -60,39 +64,78 @@
             for (let i = 0; i < parseInt(a.value); i++) {
                 arrs[a.id].push(Math.floor(Math.random() * parseInt(a.value)))
             }
-            document.getElementById(a.id + "_inner").innerHTML = arrs[a.id]
+            document.getElementById(a.id + "_inner").innerHTML = "(双击隐藏)" + arrs[a.id]
         }
 
         function doOk() {
             var key = document.getElementsByTagName('select')[0].value
             var t = document.getElementById("time")
+            var s, e;
             switch (key) {
                 case "对象去重法":
-                    var s = new Date().getTime();
+                    s = new Date().getTime();
                     res = distinct(arrs.arr1, arrs.arr2)
-                    var e = new Date().getTime();
+                    e = new Date().getTime();
+                    break;
+                case "set去重法":
+                    s = new Date().getTime();
+                    res = dedupe(arrs.arr1, arrs.arr2)
+                    e = new Date().getTime();
+                    break;
+                case "incloud去重法":
+                    s = new Date().getTime();
+                    res = incloudDedupe(arrs.arr1, arrs.arr2)
+                    e = new Date().getTime();
+                    break;
+                case "filter去重法":
+                    s = new Date().getTime();
+                    res = filter(arrs.arr1, arrs.arr2)
+                    e = new Date().getTime();
                     break;
                 default:
                     break;
             }
-            document.getElementById("res").innerHTML = res
-
-            t.innerHTML = "耗时：" + ((s - e) + "mm")
+            document.getElementById("res").innerHTML = "(双击隐藏)" + res
+            alert(key + "执行结束")
+            t.innerHTML = "耗时：" + ((s - e) + "ms")
         }
 
-
+        //对象去重法；
         function distinct(a, b) {
-            let arr = a.concat(b)
+            let arr = a.concat(b) //两个数组相加
             let result = []
             let obj = {}
 
-            for (let i of arr) {
-                if (!obj[i]) {
+            for (let i of arr) { //遍历相加后的对象；
+                if (!obj[i]) { //使用数组元素查询对象，没有该对象即push到新数组，并在对象中用该元素新增一个属性；
                     result.push(i)
                     obj[i] = 1
                 }
             }
             return result
+        }
+
+        //set去重法；
+        function dedupe(a, b) {
+            return Array.from(new Set(a.concat(b)));
+        }
+
+        //incloud去重；
+        function incloudDedupe(a, b) {
+            let arr = a.concat(b)
+            let result = []
+            for (let i of arr) {
+                !result.includes(i) && result.push(i)
+            }
+            return result
+        }
+
+        //filter去重；
+        function filter(a, b) {
+            let arr = a.concat(b);
+            return arr.filter((item, index) => {
+                return arr.indexOf(item) === index
+            })
         }
     </script>
 </body>

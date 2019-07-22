@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>颜色查询：</h3>
+    <input type="text" oninput="cho(this)">
+    <h4 id="ins"></h4>
+    <div style="height: 200px;width:200px;overflow: inherit" id="bor">
+        <div id="ground" style="height: 200px;width:200px;position: relative;top: 100px;left:100px;background-color:#000;z-index: -1;">
+        </div>
+    </div>
+    <script>
+        function cho(a) {
+            document.getElementById("bor").style.backgroundColor = a.value
+            document.getElementById("ins").innerHTML = a.value
+        }
+    </script>
+</body>
+
+</html>
