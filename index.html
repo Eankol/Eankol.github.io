@@ -18,26 +18,26 @@
     <div id="app">
         <div id="index">
             <ul>分类：
-                <li>1</li>
+                <li id="index1">{{index1}}</li>
                 <li>2</li>
             </ul>
         </div>
         <div id="inner">
-            
+            {{inner}}
         </div>
 
     </div>
     <script>
-        new elms({
-            data: {},
-            elements: [{}],
+        new elms({ 
+            data: {index1:"luoluo",inner:""},
+            elements: [{el:document.getElementById("index1")},{el:document.getElementById("inner")}],
             methods: {}
         })
         document.getElementsByClassName("flag")[0].addEventListener("click", function() {
             window.open("https://github.com/Eankol", "blank")
         })
         $.get("http://www.docdt.cn/data/20190716", function(a) {
-
+            $.inner=a.inner;
         })
     </script>
 </body>

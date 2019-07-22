@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="a1"/>
+    <input type="text" id="b1">
+    <input type="button" value="保存" onclick="du()"/>
+    <div id="a2" style="word-break:break-all"></div>
+    <div id="b2" style="word-break:break-all"></div>
+    <div id="arr" style="word-break:break-all"></div>
+    
+    <script>
+         var a =[];
+         var b=[];
+        var a1=document.getElementById("a1")
+        a1.addEventListener("input",function(){
+             a =[];
+        
+         for(var i=0;i<parseInt(a1.value);i++){
+            a.push(Math.ceil(Math.random()*parseInt(a1.value)));
+         }
+         //console.log(a);
+         document.getElementById("a2").innerHTML=a;
+        })
+        var b1=document.getElementById("b1");
+        b1.addEventListener("input",function(){
+              
+          b=[];
+         for(var i=0;i<parseInt(b1.value);i++){
+            b.push(Math.ceil(Math.random()*parseInt(b1.value)));
+         }
+        // console.log(a);
+         document.getElementById("b2").innerHTML=b;
+        })
+        function du(){
+            var a3= a.concat(b);
+          
+            let coll= new Set(a3);
+            var arr=Array.from(coll);
+            document.getElementById("arr").innerHTML=arr;
+        }
+    </script>
+</body>
+</html>
