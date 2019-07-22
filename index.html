@@ -19,7 +19,7 @@
         <div id="index">
             <ul>分类：
                 <li id="index1">{{index1}}</li>
-                <li>2</li>
+                <li onclick="$.test_show()">2</li>
             </ul>
         </div>
         <div id="inner">
@@ -31,7 +31,13 @@
         new elms({ 
             data: {index1:"luoluo",inner:""},
             elements: [{el:document.getElementById("index1")},{el:document.getElementById("inner")}],
-            methods: {}
+            methods: {
+                test_show(){
+                    $.get("http://www.docdt.cn/data/20190717", function(a) {
+                        $.inner=a.inner;
+                    })
+                }
+            }
         })
         document.getElementsByClassName("flag")[0].addEventListener("click", function() {
             window.open("https://github.com/Eankol", "blank")
