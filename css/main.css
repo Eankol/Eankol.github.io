@@ -59,6 +59,14 @@ body {
     cursor: pointer;
 }
 
+#index ul li {
+    cursor: pointer;
+}
+
+#index ul li:hover {
+    box-shadow: 2px 0px 5px #666;
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 
