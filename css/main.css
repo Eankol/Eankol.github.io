@@ -62,7 +62,7 @@ body {
 #index ul li {
     cursor: pointer;
     list-style: none;
-    display: inline-block;
+    display: block;
 }
 
 #index ul li:hover {
