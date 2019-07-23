@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var treeData = [{
+            node: "总树",
+            id: "1",
+            childs: [{
+                node: "分支1",
+                id: "11",
+                childs: [{
+                    node: "分支11",
+                    id: "111",
+                    childs: []
+                }]
+            }, {
+                node: "分支2",
+                id: "12",
+                childs: [{
+                    node: "分支21",
+                    id: "121",
+                    childs: []
+                }]
+            }, {
+                node: "分支3",
+                id: "13",
+                childs: [{
+                    node: "分支31",
+                    id: "131",
+                    childs: []
+                }, {
+                    node: "分支32",
+                    id: "132",
+                    childs: []
+                }, {
+                    node: "分支33",
+                    id: "133",
+                    childs: []
+                }, {
+                    node: "分支34",
+                    id: "134",
+                    childs: [{
+                        node: "分支341",
+                        id: "1341",
+                        childs: []
+                    }]
+                }]
+            }, {
+                node: "分支4",
+                id: "14",
+                childs: []
+            }, {
+                node: "分支5",
+                id: "15",
+                childs: []
+            }]
+        }]
+
+        var i = 0;
+
+        function readTree(td) {
+            if (td.length > 0) {
+                for (let i = 0; i < td.length; i++) {
+                    document.write((td[i].childs.length > 0 ? "+" : "-") + "<span id=\"" + td[i].id + "\">" + td[i].node + "</span><br>");
+                    td[i].expand = (td[i].childs.length > 0 ? false : true);
+                }
+            }
+        }
+
+        readTree(treeData)
+    </script>
+</body>
+
+</html>

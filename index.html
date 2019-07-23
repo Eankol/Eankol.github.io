@@ -17,9 +17,7 @@
     </nav>
     <div id="app">
         <div id="index">
-            <ul>分类：
-                <li id="index1">{{index1}}</li>
-                <li onclick="$.test_show()">2</li>
+            <ul>分类： {{index1}}
             </ul>
         </div>
         <div id="inner">
@@ -28,13 +26,20 @@
 
     </div>
     <script>
-        new elms({ 
-            data: {index1:"luoluo",inner:""},
-            elements: [{el:document.getElementById("index1")},{el:document.getElementById("inner")}],
+        new elms({
+            data: {
+                index1: "welcom",
+                inner: ""
+            },
+            elements: [{
+                el: document.getElementById("index1")
+            }, {
+                el: document.getElementById("inner")
+            }],
             methods: {
-                test_show(){
+                test_show() {
                     $.get("http://www.docdt.cn/data/20190717", function(a) {
-                        $.inner=a.inner;
+                        $.inner = a.inner;
                     })
                 }
             }
@@ -42,8 +47,16 @@
         document.getElementsByClassName("flag")[0].addEventListener("click", function() {
             window.open("https://github.com/Eankol", "blank")
         })
-        $.get("http://www.docdt.cn/data/20190716", function(a) {
-            $.inner=a.inner;
+        $.get("http://www.docdt.cn/data/index", function(a) {
+            var inner = ""
+            for (let i = 0; i < a.length; a++) {
+                inner += "<li onclick=\"$.test_show('" + a[i] + "')\">"
+                $.get("http://www.docdt.cn/data/" + a[i], function(b) {
+                    inner += b.title + "</li>"
+                })
+            }
+            $.index1 = inner
+                // $.inner = a.inner;
         })
     </script>
 </body>

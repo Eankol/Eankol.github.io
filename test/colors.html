@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="600" height="200" style="background-color: #000" id="myCanvas">
+
+    </canvas>
+
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.strokeStyle = "red"
+        ctx.fillStyle = "red"
+        ctx.beginPath();
+        ctx.arc(75, 75, 50, 0, Math.PI, false); // 绘制
+        ctx.stroke();
+        ctx.closePath()
+        ctx.fill()
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "black"
+        ctx.beginPath();
+        ctx.arc(75, 75, 40, 0, Math.PI, false); // 口(顺时针)
+        ctx.stroke();
+        ctx.closePath()
+        ctx.fill()
+    </script>
+
+</body>
+
+</html>
