@@ -50,10 +50,7 @@
         $.get("http://www.docdt.cn/data/index", function(a) {
             var inner = ""
             for (let i = 0; i < a.length; a++) {
-                inner += "<li onclick=\"$.test_show('" + a[i] + "')\">"
-                $.get("http://www.docdt.cn/data/" + a[i], function(b) {
-                    inner += b.title + "</li>"
-                })
+                inner += "<li onclick=\"$.test_show('" + a[i].url + "')\">" + a[i].title + "</li>"
             }
             $.index = inner
                 // $.inner = a.inner;
