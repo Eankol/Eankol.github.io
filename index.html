@@ -37,8 +37,8 @@
                 el: document.getElementById("inner")
             }],
             methods: {
-                test_show() {
-                    $.get("http://www.docdt.cn/data/20190717", function(a) {
+                test_show(t) {
+                    $.get("http://www.docdt.cn/data/" + t, function(a) {
                         $.inner = a.inner;
                     })
                 }
