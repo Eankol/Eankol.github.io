@@ -61,10 +61,12 @@ body {
 
 #index ul li {
     cursor: pointer;
+    list-style: none;
+    display: inline-block;
 }
 
 #index ul li:hover {
-    box-shadow: 2px 0px 5px #666;
+    box-shadow: 0px 0px 3px #666;
 }
 
 
