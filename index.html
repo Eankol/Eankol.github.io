@@ -16,8 +16,8 @@
         <div><span>日志</span><span>其它</span></div>
     </nav>
     <div id="app">
-        <div id="index">
-            <ul>分类： {{index1}}
+        <div>
+            <ul id="index">分类： {{index}}
             </ul>
         </div>
         <div id="inner">
@@ -28,11 +28,11 @@
     <script>
         new elms({
             data: {
-                index1: "welcom",
+                index: "welcom",
                 inner: ""
             },
             elements: [{
-                el: document.getElementById("index1")
+                el: document.getElementById("index")
             }, {
                 el: document.getElementById("inner")
             }],
@@ -55,7 +55,7 @@
                     inner += b.title + "</li>"
                 })
             }
-            $.index1 = inner
+            $.index = inner
                 // $.inner = a.inner;
         })
     </script>
