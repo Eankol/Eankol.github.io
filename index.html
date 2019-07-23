@@ -17,7 +17,7 @@
     </nav>
     <div id="app">
         <div>
-            <ul id="index">分类： {{index}}
+            <ul id="index">目录： {{index}}
             </ul>
         </div>
         <div id="inner">
@@ -53,7 +53,9 @@
                 inner += "<li onclick=\"$.test_show('" + a[i].url + "')\">" + a[i].title + "</li>"
             }
             $.index = inner
-                // $.inner = a.inner;
+            $.get("http://www.docdt.cn/data/" + a[0].url, function(b) {
+                $.inner = b.inner;
+            })
         })
     </script>
 </body>
