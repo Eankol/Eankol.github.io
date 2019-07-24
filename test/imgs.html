@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas")
+        canvas.width = 600;
+        canvas.height = 200;
+        var ctx = canvas.getContext('2d')
+        ctx.beginPath();
+        ctx.fillStyle = "#dd4499"
+        ctx.moveTo(6, 6)
+        ctx.arc(8, 8, 4, 0, 360)
+        ctx.fill();
+        ctx.beginPath();
+        ctx.strokeStyle = "#333"
+        ctx.moveTo(8 + Math.cos(45 * Math.PI / 180) * 4, 8 + Math.sin(45 * Math.PI / 180) * 4)
+        ctx.lineTo(8 + Math.cos(135 * Math.PI / 180) * 4, 8 + Math.sin(135 * Math.PI / 180) * 4)
+        ctx.lineTo(8, 8 + 4 * 2)
+        ctx.fill()
+        ctx.beginPath();
+        ctx.moveTo(0, 8 + 4 * 2)
+        ctx.lineTo(0 + 170, 8 + 4 * 2)
+        ctx.lineTo(0 + 170, 8 + 4 * 2 + 4)
+        ctx.lineTo(0, 8 + 4 * 2 + 4)
+        ctx.lineTo(0, 8 + 4 * 2)
+        ctx.stroke()
+    </script>
+</body>
+
+</html>
