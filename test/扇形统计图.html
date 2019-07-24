@@ -42,7 +42,7 @@
             option.data = function() {
                 var d = val[0].value.split(",")
                 for (let i = 0; i < d.length; i++) {
-                    d[i] = parseInt(d[i])
+                    d[i] = parseFloat(d[i])
                 }
                 return d;
             }()
@@ -97,6 +97,7 @@
                 ctx.moveTo(x0, y0);
                 ctx.arc(x0, y0, radius, startAngle, endAngle)
                 ctx.fill()
+                    //指示线;
                 ctx.moveTo(x0 + Math.cos(textAngle * Math.PI / 180) * radius, y0 + Math.sin(textAngle * Math.PI / 180) * radius)
                 ctx.lineTo(x0 + Math.cos(textAngle * Math.PI / 180) * (radius + 20), y0 + Math.sin(textAngle * Math.PI / 180) * (radius + 20))
                 ctx.lineTo(function() {
@@ -112,7 +113,7 @@
             ctx.beginPath();
             ctx.fillStyle = "#121212"
             ctx.moveTo(x0, y0);
-            ctx.arc(x0, y0, options.blank ? options.blank : 80, 0, 360);
+            ctx.arc(x0, y0, options.blank ? options.blank : 0, 0, 360);
             ctx.fill();
         }
     </script>
