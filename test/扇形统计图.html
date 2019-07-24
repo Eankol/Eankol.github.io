@@ -79,42 +79,38 @@
                 }();
                 ctx.fillStyle = color;
                 ctx.strokeStyle = color;
-                var startAngle = (tempAngle + (options.space ? options.space : 0)) * Math.PI / 180; //起始弧度
+                var startAngle = (tempAngle) * Math.PI / 180; //起始弧度
                 var angle = options.data[i] / tal * 360;
-                var endAngle = (tempAngle + angle) * Math.PI / 180; //结束弧度
+                var endAngle = ((tempAngle + angle) - (options.space ? options.space : 0)) * Math.PI / 180; //结束弧度
                 var textAngle = tempAngle + 0.5 * angle; //文字放的角度
-                x = x0 + Math.cos(textAngle * Math.PI / 180) * (radius + 80); //文字放的X轴
-                y = y0 + Math.sin(textAngle * Math.PI / 180) * (radius + 20); //文字放的Y轴
                 //如果文字在圆形的左侧，那么让文字 对齐方式为 文字结尾对齐当前坐标。
                 if (textAngle > 90 && textAngle < 270) {
                     ctx.textAlign = 'end';
                 }
                 var text = (options.data[i] / tal * 100).toFixed(2) + '%'
-                ctx.fillText(text, x, y);
+                ctx.fillText(text, function() {
+                    if (textAngle > 90 && textAngle < 270) {
+                        return x0 - 45 + Math.cos(textAngle * Math.PI / 180) * (radius + 20)
+                    }
+                    return x0 + 45 + Math.cos(textAngle * Math.PI / 180) * (radius + 20)
+                }(), y0 - 3 + Math.sin(textAngle * Math.PI / 180) * (radius + 20));
                 ctx.moveTo(x0, y0);
                 ctx.arc(x0, y0, radius, startAngle, endAngle)
                 ctx.fill()
-                ctx.moveTo(x0, y0)
+                ctx.moveTo(x0 + Math.cos(textAngle * Math.PI / 180) * radius, y0 + Math.sin(textAngle * Math.PI / 180) * radius)
+                ctx.lineTo(x0 + Math.cos(textAngle * Math.PI / 180) * (radius + 20), y0 + Math.sin(textAngle * Math.PI / 180) * (radius + 20))
                 ctx.lineTo(function() {
                     if (textAngle > 90 && textAngle < 270) {
-                        return x + 30;
-                    } else {
-                        return x - 30;
+                        return x0 - 80 + Math.cos(textAngle * Math.PI / 180) * (radius + 20)
                     }
-                }(), y + 5)
-                ctx.lineTo(function() {
-                    if (textAngle > 90 && textAngle < 270) {
-                        return x - 40;
-                    } else {
-                        return x + 40;
-                    }
-                }(), y + 5)
+                    return x0 + 80 + Math.cos(textAngle * Math.PI / 180) * (radius + 20)
+                }(), y0 + Math.sin(textAngle * Math.PI / 180) * (radius + 20))
                 ctx.stroke()
                 tempAngle += angle;
             }
             //遮罩大小;
             ctx.beginPath();
-            ctx.fillStyle = "#000"
+            ctx.fillStyle = "#121212"
             ctx.moveTo(x0, y0);
             ctx.arc(x0, y0, options.blank ? options.blank : 80, 0, 360);
             ctx.fill();
