@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <textarea name="" id="" cols="150" rows="30" id="input"></textarea><button onclick="runs()">运行</button>
+    <div id="console"></div>
+    <script>
+        console.log = function(s) {
+            document.getElementById("console").innerHTML = s
+        }
+        document.write = function(s) {
+            document.getElementById("console").innerHTML = s
+        }
+
+        function runs() {
+            var thisProgram = document.getElementById("input").value;
+            eval(thisProgram)
+        }
+    </script>
+</body>
+
+</html>
